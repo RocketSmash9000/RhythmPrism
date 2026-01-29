@@ -21,19 +21,19 @@ You will (*obviously*) need the GitHub app
  1. Add a new repository
  2. Click on "Clone repository..."
  3. Select "URL"
- 4. Paste `soon to update` into the URL textbar
+ 4. Paste `https://github.com/RocketSmash9000/RhythmPrism.git` into the URL textbar
  5. Select the folder you want the repository to be in
  6. Click "Clone"
 
 ### Git command (Windows)
 You will need to have Git installed.
  1. Open cmd or PowerShell in the folder you want the project cloned into. The folder should be empty.
- 2. Type `git clone <soon to update>` into the terminal of your choice and hit enter.
+ 2. Type `git clone https://github.com/RocketSmash9000/RhythmPrism.git` into the terminal of your choice and hit enter.
 
 ### Git command (Linux)
 You need Git (though most distros already have it installed)
  1. Open your terminal in your desired directory. It should be empty.
- 2. Type `git clone <soon to update>` and hit enter.
+ 2. Type `git clone https://github.com/RocketSmash9000/RhythmPrism.git` and hit enter.
 
 ### Download from GitHub
  1. Click the green button at the top of the page that says "Code".
