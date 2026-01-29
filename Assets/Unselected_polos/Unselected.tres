@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bny3dhohmyykb"]
+
+[ext_resource type="Texture2D" uid="uid://napml810b74x" path="res://Assets/Unselected_polos/Unselected_atals.tres" id="1_j7w4f"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7w4f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

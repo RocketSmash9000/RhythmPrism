@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="93.151871"
+   height="93.151855"
+   viewBox="0 0 93.151871 93.151855"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-40,-40)">
+    <g
+       id="g5"
+       transform="matrix(0.62263718,0,0,0.61139598,40.047632,40.046772)">
+      <ellipse
+         style="fill:#4d4d4d;fill-opacity:1;stroke:#202020;stroke-width:0.153;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0"
+         id="path2"
+         ry="76.103149"
+         rx="74.727791"
+         cy="76.103149"
+         cx="74.727791" />
+      <path
+         style="fill:#17202c;fill-opacity:1;stroke:#fffdfd;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+         d="m 34.22779,51.939828 h 81"
+         id="path3" />
+      <path
+         style="fill:#17202c;fill-opacity:1;stroke:#fffdfd;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+         d="M 34.227791,76.103149 H 115.22779"
+         id="path4" />
+      <path
+         style="fill:#17202c;fill-opacity:1;stroke:#fffdfd;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+         d="M 34.227791,100.26647 H 115.22779"
+         id="path5" />
+    </g>
+  </g>
+</svg>

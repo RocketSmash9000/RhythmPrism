@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="435.54004"
+   viewBox="0 0 1920 435.54004"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient4">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.76131684"
+         id="stop4" />
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:0;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2">
+      <stop
+         style="stop-color:#368ecb;stop-opacity:1;"
+         offset="0.0164609"
+         id="stop3" />
+      <stop
+         style="stop-color:#3fd7c0;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2"
+       id="linearGradient3"
+       x1="960"
+       y1="691.32458"
+       x2="960.02399"
+       y2="166.98349"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="reflect" />
+    <linearGradient
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="960"
+       y1="1080"
+       x2="960"
+       y2="644.45996"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(0,-644.45996)">
+    <rect
+       style="display:inline;fill:#4d4d4d;fill-opacity:0.503685;stroke:none;stroke-width:9.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-dasharray:none"
+       id="rect1"
+       width="106.16696"
+       height="101.41953"
+       x="233.83374"
+       y="738.64233"
+       ry="27.554878"
+       rx="25.558739" />
+    <rect
+       style="display:none;fill:url(#linearGradient3);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:9.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-dasharray:none"
+       id="rect2"
+       width="1919.9391"
+       height="524.34106"
+       x="0.054409631"
+       y="166.98349"
+       rx="0"
+       ry="9.7656425e-09" />
+    <rect
+       style="fill:url(#linearGradient5);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:9.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-dasharray:none"
+       id="rect3"
+       width="1920"
+       height="435.54004"
+       x="0"
+       y="644.45996"
+       ry="9.7656425e-09" />
+    <path
+       style="display:none;fill:#17202c;fill-opacity:1;stroke:#202020;stroke-width:0.166044;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0"
+       d="M 0.00652194,691.32457 H 1919.9935 V 1079.9935 H 0.00652194 Z"
+       id="path1" />
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+Sound/B3 Redbird 1.mp3
+Sound/B3 Redbird 1.mp3.import
+Sound/B3 Redbird 2.mp3
+Sound/B3 Redbird 2.mp3.import
+Sound/V5 FitnessGram 1.mp3
+Sound/V5 FitnessGram 1.mp3.import
+Sound/V5 FitnessGram 2.mp3
+Sound/V5 FitnessGram 2.mp3.import

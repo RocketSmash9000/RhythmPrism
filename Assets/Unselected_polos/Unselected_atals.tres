@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://napml810b74x"]
+
+[ext_resource type="Texture2D" uid="uid://b1k1wksjerubs" path="res://Assets/Unselected_polos/polo-sprite-hd.png" id="1_r1gv5"]
+
+[resource]
+atlas = ExtResource("1_r1gv5")
+region = Rect2(345, 53, 285, 767)
