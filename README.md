@@ -13,8 +13,11 @@ I (RocketSmash) am not responsible for the misuse of this engine. This includes 
 
 Take into account that RhythmPrism is still in its early stages of development. Even though it already works, some things may break or not work. If you have any features you want added, open an issue or DM me through Discord. I'm open to suggestions.
 
+## Download the project
+You can download Rp from the [Releases](https://github.com/RocketSmash9000/RhythmPrism/releases/latest) tab. Decompress and import the project in Godot as seen in [Edit the project](https://github.com/RocketSmash9000/RhythmPrism/?tab=readme-ov-file#edit-the-project).
+
 ## Cloning the project
-You can choose one of these options
+You can choose one of these options.
 
 ### [Reccomended] Use the GitHub app
 You will (*obviously*) need the GitHub app
@@ -40,21 +43,18 @@ You need Git (though most distros already have it installed)
  2. Click on "Download ZIP"
  3. Unzip the downloaded file into the desired folder
 
+## Contribute
+If you'd like to help with this project, be it with sprites, code or suggestions, you're free to open a pull request or an issue.
+
 ## Edit the project
 Open Godot Engine, click "Import" and select the `project.godot` file in the cloned project you made earlier. Then click on "Import & Edit".
 
-You will need Godot 4.6 or higher to be able to open the project
-
-## Want to contribute?
-Open the project in Godot, make and commit your changes and create a pull request. Any and all help with making this project is appreciated.
+You will need Godot 4.6 or higher to be able to open the project.
 
 ## Need help?
 First look for issues related to your problem. It not always is a RhythmPrism issue. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem, DM me on Discord or read the wiki (empty right now).
 
 If you need help with making a mod using RP, feel free to contact me. I'll try to help (if life allows it).
-
-## Do you want/need to change the code?
-Since the project is open source and modular, there are many things you can do to adapt it to your needs. For example, you may want to add 30 polo sounds instead of the usual 20 for some big mod you're creating. In those cases, I reccommend that you please refer to the documentation in the wiki tab (missing), or read the comments in the code.
 
 If you run into any issues, feel free to Google your problems, DM me in Discord, or open an issue in this project with the "derived" tag.
 
