@@ -1,5 +1,10 @@
 - Muting, soloing and eliminating buttons.
 	- The polo vanquisher has been added.
+- Add audio effects to bus depending on what sound is playing.
+	- Check if sound has associated effect.
+	- Add associated effect to corresponding audio bus.
+	- Remove effect to bus when polo is vanquished.
+- Keybinds to increase and decrease master volume
 - Loop overhaul (cleanup legacy code, make more optimised).
 
 - Add cinematic mode (let people put polos in certain times and then it plays it back without UI. Better control over replays). Will most likely be added after 1.0.
