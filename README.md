@@ -1,6 +1,8 @@
 # RhythmPrism
 A free and open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons (with a few extra steps that aren't hard). No need to code or type anything hard to understand.
 
+You should visit [this page](https://rocketsmash9000.github.io/RhythmPrism/) for a better viewing experience and to access the wiki.
+
 If you end up using this project, let me know what awesome stuff you've made with it! :D
 
 ## Your imagination is the limit!
