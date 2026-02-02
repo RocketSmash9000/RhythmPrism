@@ -1,0 +1,47 @@
+.navigation-clean-button {
+  background: #222222;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #f2f5f8;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+}
+
+@media (max-width:767px) {
+  .navigation-clean-button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.navigation-clean-button .navbar-brand {
+  font-weight: bold;
+  color: inherit;
+}
+
+.navigation-clean-button .navbar-brand:hover {
+  color: #1485ee;
+}
+
+.navigation-clean-button .navbar-collapse, .navigation-clean-button .navbar-form {
+  border-top-color: #ddd;
+}
+
+.navigation-clean-button.navbar .navbar-nav > li > a {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.navigation-clean-button .navbar-nav > li > .dropdown-menu {
+  margin-top: -5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  background-color: #222222;
+  border-radius: 2px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
