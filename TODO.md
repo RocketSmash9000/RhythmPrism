@@ -4,8 +4,11 @@
 	- Check if sound has associated effect.
 	- Add associated effect to corresponding audio bus.
 	- Remove effect to bus when polo is vanquished.
-- Keybinds to increase and decrease master volume
+- Keybinds to increase and decrease master volume.
 - Loop overhaul (cleanup legacy code, make more optimised).
+- Create script/executable for easy mod making.
+	- Will need to be able to select all sprites for every polo.
+	- Let user make animations from interface.
 
 - Add cinematic mode (let people put polos in certain times and then it plays it back without UI. Better control over replays). Will most likely be added after 1.0.
 - Add version selector (each version will need its own resources, which means more directories yay!). Probably won't be added until after 1.0.

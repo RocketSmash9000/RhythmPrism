@@ -26,6 +26,8 @@ var loop_seconds = 6
 var loop_amount: int = 2
 var current_loop: int = 1
 
+var master_volume: float = 1.0
+var master_muted: bool = false
 
 func _ready() -> void:
 	pass
@@ -51,6 +53,37 @@ func _process(_delta: float) -> void:
 	# Sets the current loop to 1 if there are no picked polos
 	if picked_polos.is_empty():
 		current_loop = 1
+	
+	# When U button is pressed, increases master volume.
+	if Input.is_action_just_pressed("volume_up"):
+		if master_muted:
+			AudioServer.set_bus_mute(0, false)
+			master_muted = false
+		AudioServer.set_bus_volume_linear(0, AudioServer.get_bus_volume_linear(0)+0.05)
+		master_volume = AudioServer.get_bus_volume_linear(0)
+	
+	# When I button is pressed, decreases master volume.
+	if Input.is_action_just_pressed("volume_down"):
+		if master_muted:
+			AudioServer.set_bus_mute(0, false)
+			master_muted = false
+		AudioServer.set_bus_volume_linear(0, AudioServer.get_bus_volume_linear(0)-0.05)
+		master_volume = AudioServer.get_bus_volume_linear(0)
+		# If the volume is zero, conversion from db to linear
+		# will fail miserably and return NaN.
+		# So if it happens we make the volume real close to 0.
+		if is_nan(master_volume):
+			AudioServer.set_bus_volume_linear(0, 0.0001)
+			master_volume = 0
+	
+	# If O button is pressed, mute the whole thing.
+	if Input.is_action_just_pressed("mute"):
+		if master_muted:
+			AudioServer.set_bus_mute(0, false)
+			master_muted = false
+		else:
+			AudioServer.set_bus_mute(0, true)
+			master_muted = true
 
 func set_polo_animation(meta):
 	match meta:
