@@ -86,44 +86,4 @@ func _process(_delta: float) -> void:
 			master_muted = true
 
 func set_polo_animation(meta):
-	match meta:
-		1:
-			return load("res://Assets/Polos/1/1.tres")
-		2:
-			return load("res://Assets/Polos/2/2.tres")
-		3:
-			return load("res://Assets/Polos/3/3.tres")
-		4:
-			return load("res://Assets/Polos/4/4.tres")
-		5:
-			return load("res://Assets/Polos/5/5.tres")
-		6:
-			return load("res://Assets/Polos/6/6.tres")
-		7:
-			return load("res://Assets/Polos/7/7.tres")
-		8:
-			return load("res://Assets/Polos/8/8.tres")
-		9:
-			return load("res://Assets/Polos/9/9.tres")
-		10:
-			return load("res://Assets/Polos/10/10.tres")
-		11:
-			return load("res://Assets/Polos/11/11.tres")
-		12:
-			return load("res://Assets/Polos/12/12.tres")
-		13:
-			return load("res://Assets/Polos/13/13.tres")
-		14:
-			return load("res://Assets/Polos/14/14.tres")
-		15:
-			return load("res://Assets/Polos/15/15.tres")
-		16:
-			return load("res://Assets/Polos/16/16.tres")
-		17:
-			return load("res://Assets/Polos/17/17.tres")
-		18:
-			return load("res://Assets/Polos/18/18.tres")
-		19:
-			return load("res://Assets/Polos/19/19.tres")
-		20:
-			return load("res://Assets/Polos/20/20.tres")
+	return load("res://Assets/Polos/" + str(meta) + "/" + str(meta) + ".tres")

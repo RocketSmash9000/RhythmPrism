@@ -21,8 +21,10 @@ func _process(_delta: float) -> void:
 	
 	if get_meta("iconID") in GlobalVars.picked_polos: # Disables the icon when the polo is in use
 		used = true
+		disabled = true
 	else:
 		used = false
+		disabled = false
 
 
 func _when_self_button_down() -> void:

@@ -4,7 +4,6 @@
 	- Check if sound has associated effect.
 	- Add associated effect to corresponding audio bus.
 	- Remove effect to bus when polo is vanquished.
-- Keybinds to increase and decrease master volume.
 - Loop overhaul (cleanup legacy code, make more optimised).
 - Create script/executable for easy mod making.
 	- Will need to be able to select all sprites for every polo.

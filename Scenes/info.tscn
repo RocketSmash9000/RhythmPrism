@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://byx4drgxr436t"]
+[gd_scene format=3 uid="uid://byx4drgxr436t"]
 
 [ext_resource type="Texture2D" uid="uid://cj1d6k5rrlipt" path="res://Assets/UI_elements/Main/Background.svg" id="1_m02ho"]
-[ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_wj42d"]
-[ext_resource type="Shader" path="res://Assets/UI_elements/Shader/blur.gdshader" id="2_k6ima"]
+[ext_resource type="Script" uid="uid://cxp8312mcqydo" path="res://Scripts/SplashScreen.gd" id="1_wj42d"]
+[ext_resource type="Shader" uid="uid://tq7l7djbiq1c" path="res://Assets/UI_elements/Shader/blur.gdshader" id="2_k6ima"]
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Main/Shadow.svg" id="2_pdpcw"]
 [ext_resource type="Texture2D" uid="uid://shsgopqgauvc" path="res://Assets/UI_elements/Info/play.svg" id="3_24yuy"]
 [ext_resource type="Texture2D" uid="uid://d2ssmajc2tfra" path="res://Assets/UI_elements/Info/credits.svg" id="4_ktnio"]
@@ -15,37 +15,37 @@ shader = ExtResource("2_k6ima")
 shader_parameter/blur_amount = 0.0
 shader_parameter/sigma = 4.0
 
-[node name="Info" type="Node2D"]
+[node name="Info" type="Node2D" unique_id=269777770]
 script = ExtResource("1_wj42d")
 
-[node name="Container" type="SubViewportContainer" parent="."]
+[node name="Container" type="SubViewportContainer" parent="." unique_id=1650573822]
 material = SubResource("ShaderMaterial_exksx")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="SubViewport" type="SubViewport" parent="Container"]
+[node name="SubViewport" type="SubViewport" parent="Container" unique_id=1385047461]
 handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="SplashArt" type="Sprite2D" parent="Container/SubViewport"]
+[node name="SplashArt" type="Sprite2D" parent="Container/SubViewport" unique_id=857221906]
 position = Vector2(960, 541)
 scale = Vector2(1, 2.06489)
 texture = ExtResource("1_m02ho")
 
-[node name="Shadow" type="Sprite2D" parent="Container/SubViewport"]
+[node name="Shadow" type="Sprite2D" parent="Container/SubViewport" unique_id=1243451231]
 position = Vector2(960, 1277.5)
 scale = Vector2(1, 0.892202)
 texture = ExtResource("2_pdpcw")
 
-[node name="Shadow2" type="Sprite2D" parent="Container/SubViewport"]
+[node name="Shadow2" type="Sprite2D" parent="Container/SubViewport" unique_id=1615475637]
 position = Vector2(960, -140)
 scale = Vector2(1, 0.642202)
 texture = ExtResource("2_pdpcw")
 flip_v = true
 
-[node name="Play" type="TextureButton" parent="Container/SubViewport"]
+[node name="Play" type="TextureButton" parent="Container/SubViewport" unique_id=1163113199]
 offset_left = 880.0
 offset_top = 1216.0
 offset_right = 1040.0
@@ -57,7 +57,7 @@ texture_hover = ExtResource("6_3f5wr")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Credits" type="TextureButton" parent="Container/SubViewport"]
+[node name="Credits" type="TextureButton" parent="Container/SubViewport" unique_id=872193894]
 offset_left = 64.0
 offset_top = -256.0
 offset_right = 176.0
@@ -66,7 +66,7 @@ texture_normal = ExtResource("4_ktnio")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Version" type="Label" parent="Container/SubViewport"]
+[node name="Version" type="Label" parent="Container/SubViewport" unique_id=2013104561]
 modulate = Color(1, 1, 1, 0.270588)
 z_index = 10
 offset_left = 8.0
@@ -74,10 +74,10 @@ offset_top = 1048.0
 offset_right = 238.0
 offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
-text = "Incredidot v0.3"
+text = "RhythmPrism v0.3.1"
 horizontal_alignment = 1
 
-[node name="Credits_screen" parent="." instance=ExtResource("8_b57nr")]
+[node name="Credits_screen" parent="." unique_id=2094439433 instance=ExtResource("8_b57nr")]
 position = Vector2(960, 1824)
 
 [connection signal="pressed" from="Container/SubViewport/Play" to="." method="_when_play_pressed"]

@@ -138,7 +138,7 @@ texture_normal = ExtResource("2_6b48f")
 [node name="01" type="Area2D" parent="Static elements" unique_id=2042286228]
 process_mode = 3
 process_priority = 1
-position = Vector2(192, 496)
+position = Vector2(342, 496)
 disable_mode = 2
 script = ExtResource("6_7jw41")
 metadata/PoloID = 1
@@ -155,10 +155,11 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01" unique_id=1462281115]
 bus = &"01"
+script = ExtResource("14_futju")
 metadata/AudioID = 1
 
 [node name="02" type="Area2D" parent="Static elements" unique_id=377325582]
-position = Vector2(448, 496)
+position = Vector2(548, 496)
 script = ExtResource("6_7jw41")
 metadata/PoloID = 2
 
@@ -179,7 +180,7 @@ script = ExtResource("14_futju")
 metadata/AudioID = 2
 
 [node name="03" type="Area2D" parent="Static elements" unique_id=1784951432]
-position = Vector2(704, 496)
+position = Vector2(754, 496)
 script = ExtResource("6_7jw41")
 metadata/PoloID = 3
 
@@ -221,7 +222,7 @@ script = ExtResource("14_futju")
 metadata/AudioID = 4
 
 [node name="05" type="Area2D" parent="Static elements" unique_id=1086522172]
-position = Vector2(1216, 496)
+position = Vector2(1166, 496)
 script = ExtResource("6_7jw41")
 metadata/PoloID = 5
 
@@ -242,7 +243,7 @@ script = ExtResource("14_futju")
 metadata/AudioID = 5
 
 [node name="06" type="Area2D" parent="Static elements" unique_id=119096832]
-position = Vector2(1472, 496)
+position = Vector2(1372, 496)
 script = ExtResource("6_7jw41")
 metadata/PoloID = 6
 
@@ -263,7 +264,7 @@ script = ExtResource("14_futju")
 metadata/AudioID = 6
 
 [node name="07" type="Area2D" parent="Static elements" unique_id=377268063]
-position = Vector2(1728, 496)
+position = Vector2(1578, 496)
 script = ExtResource("6_7jw41")
 metadata/PoloID = 7
 
