@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	if $"Static elements/Debug".visible: # Displays a bunch of text in real time
 		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop) + "\n" + "First polo: " + str(first_polo)
-		$"Static elements/Debug".text = (debug_text) + "\n" + "Volume: " + str(GlobalVars.master_volume) + "\n" + "Muted: " + str(GlobalVars.master_muted)
+		$"Static elements/Debug".text = (debug_text) + "\n" + "Volume: " + str(GlobalVars.master_volume)
 	
 	if show_menu: # Shows the menu when the menu button is pressed
 		Log.debug("Showing menu...")
@@ -71,6 +71,7 @@ func _process(delta: float) -> void:
 	
 	# Delete or comment out this block in case you don't want the progress bar, or prefer using a custom one
 	if !GlobalVars.picked_polos.is_empty():
+		@warning_ignore("integer_division")
 		$"Static elements/ProgressBar".position.x += (448/(GlobalVars.loop_seconds*GlobalVars.loop_amount))*delta
 	if $"Static elements/ProgressBar".position.x >= 1960 or GlobalVars.picked_polos.is_empty():
 		$"Static elements/ProgressBar".position.x = 1512

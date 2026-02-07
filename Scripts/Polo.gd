@@ -73,7 +73,6 @@ func _process(_delta: float) -> void:
 		animator.set_parallel(true)
 		animator.tween_property($"../CtrlMenu", "position", Vector2($"../CtrlMenu".position.x, 757), 0.1)
 		animator.play()
-		
 
 func _when_self_mouse_entered() -> void:
 	mouse_in = true
@@ -90,7 +89,12 @@ func _when_self_mouse_exited() -> void:
 	mouse_in = false
 
 func _when_mute_polo_pressed() -> void:
-	pass # Replace with function body.
+	if GlobalVars.target_polo == get_meta("PoloID"):
+		if Input.is_action_pressed("solo_polo"): # Toggles soloing if shift key is pressed
+			AudioServer.set_bus_solo(get_meta("PoloID"), !AudioServer.is_bus_solo(get_meta("PoloID")))
+			return
+		# If polo isn't set to solo, toggles mute
+		AudioServer.set_bus_mute(get_meta("PoloID"), !AudioServer.is_bus_mute(get_meta("PoloID")))
 
 func _when_polo_vanquisher_pressed() -> void:
 	if GlobalVars.target_polo == get_meta("PoloID"):

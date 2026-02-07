@@ -1,5 +1,3 @@
-- Muting, soloing and eliminating buttons.
-	- The polo vanquisher has been added.
 - Add audio effects to bus depending on what sound is playing.
 	- Check if sound has associated effect.
 	- Add associated effect to corresponding audio bus.
