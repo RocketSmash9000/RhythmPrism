@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
-     inkscape:zoom="3.0847533"
-     inkscape:cx="1739.8474"
-     inkscape:cy="-114.2717"
-     inkscape:window-width="1920"
-     inkscape:window-height="1171"
+     inkscape:zoom="0.77118833"
+     inkscape:cx="2180.4013"
+     inkscape:cy="-1084.6897"
+     inkscape:window-width="2560"
+     inkscape:window-height="1411"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer4" />
   <defs
      id="defs1">
     <rect
@@ -541,30 +541,9 @@
        x="1761.6035"
        y="-1771.4613"
        ry="139.97743"
-       inkscape:export-filename=".\credits_screen.svg"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <text
-       xml:space="preserve"
-       id="text23"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;line-height:1.5;font-family:'Leelawadee UI';-inkscape-font-specification:'Leelawadee UI';word-spacing:0px;white-space:pre;shape-inside:url(#rect24);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:26.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(1.1387182,0,0,1.1387182,-316.42408,199.50001)"
        inkscape:export-filename=".\credits_screen.png"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96"><tspan
-         x="1862.0605"
-         y="-1593.7023"
-         id="tspan6"><tspan
-           style="font-weight:bold;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print Bold'"
-           id="tspan5">Incredidot template!</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text24"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.5;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';word-spacing:0px;white-space:pre;shape-inside:url(#rect25);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:26.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       transform="translate(39.70639,22.005731)"><tspan
-         x="1849.3984"
-         y="-1469.3852"
-         id="tspan7">Write here credits n' stuff :)</tspan></text>
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#626262;fill-opacity:1;stroke:#7a7a7a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
        id="rect26"
@@ -579,10 +558,13 @@
     <text
        xml:space="preserve"
        id="text26"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;line-height:1.5;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print Bold';word-spacing:0px;white-space:pre;shape-inside:url(#rect27);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(1.6342307,0,0,1.6342307,-1126.3426,268.58087)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.9527px;line-height:1.5;font-family:'ProFontWindows Nerd Font Mono';-inkscape-font-specification:'ProFontWindows Nerd Font Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;word-spacing:0px;white-space:pre;shape-inside:url(#rect27);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.6342307,0,0,1.6342307,-1124.6299,258.18476)"
+       inkscape:export-filename="..\Info\close.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          x="1998.8535"
-         y="-413.16516"
-         id="tspan8">Close</tspan></text>
+         y="-411.33441"
+         id="tspan1">Close</tspan></text>
   </g>
 </svg>

@@ -109,6 +109,7 @@ func vanquish():
 	picked = false # Sets polo to unused state
 	GlobalVars.mouse_up = false
 	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.removeEffect(get_meta("PoloID"))
 	# Returns to its default animation when unpicked
 	var animator = create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)

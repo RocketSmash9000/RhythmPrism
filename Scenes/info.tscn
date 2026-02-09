@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7icuvns0niwq" path="res://Assets/UI_elements/Info/play_pressed.svg" id="5_ow5vt"]
 [ext_resource type="Texture2D" uid="uid://c1gu1d6d0e30h" path="res://Assets/UI_elements/Info/play_hover.svg" id="6_3f5wr"]
 [ext_resource type="PackedScene" uid="uid://biyh28ioiicg1" path="res://Scenes/Credits.tscn" id="8_b57nr"]
+[ext_resource type="FontFile" uid="uid://d32un4lu5l7wx" path="res://Assets/UI_elements/Other/ProFontWindowsNerdFontMono-Regular.ttf" id="9_wwoys"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_exksx"]
 shader = ExtResource("2_k6ima")
@@ -74,7 +75,9 @@ offset_top = 1048.0
 offset_right = 238.0
 offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
-text = "RhythmPrism v0.3.2"
+theme_override_fonts/font = ExtResource("9_wwoys")
+theme_override_font_sizes/font_size = 45
+text = "RhythmPrism v0.4"
 horizontal_alignment = 1
 
 [node name="Credits_screen" parent="." unique_id=2094439433 instance=ExtResource("8_b57nr")]

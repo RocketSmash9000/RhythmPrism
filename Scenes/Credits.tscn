@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://biyh28ioiicg1"]
+[gd_scene format=3 uid="uid://biyh28ioiicg1"]
 
-[ext_resource type="Texture2D" uid="uid://3m8kdr3xigog" path="res://Assets/UI_elements/Info/credits_screen.png" id="1_siff3"]
+[ext_resource type="Texture2D" uid="uid://dq7lxorv3p166" path="res://Assets/UI_elements/Info/credits_screen.png" id="1_xbebw"]
 [ext_resource type="Texture2D" uid="uid://d18fgew8ms67o" path="res://Assets/UI_elements/Info/close.png" id="2_l1424"]
+[ext_resource type="FontFile" uid="uid://d32un4lu5l7wx" path="res://Assets/UI_elements/Other/ProFontWindowsNerdFontMono-Regular.ttf" id="3_7xmno"]
 
-[node name="Credits" type="Node2D"]
+[node name="Credits" type="Node2D" unique_id=753673874]
 
-[node name="CreditsScreen" type="Sprite2D" parent="."]
+[node name="CreditsScreen" type="Sprite2D" parent="." unique_id=2136085862]
 position = Vector2(6.10352e-05, 3.05176e-05)
 scale = Vector2(0.48, 0.48)
-texture = ExtResource("1_siff3")
+texture = ExtResource("1_xbebw")
 
-[node name="Close" type="TextureButton" parent="."]
+[node name="Close" type="TextureButton" parent="." unique_id=114654888]
 offset_left = -96.0
 offset_top = 232.0
 offset_right = 96.0
@@ -18,3 +19,26 @@ offset_bottom = 264.0
 texture_normal = ExtResource("2_l1424")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=261688338]
+offset_left = -182.0
+offset_top = -254.0
+offset_right = 182.0
+offset_bottom = -218.0
+theme_override_fonts/font = ExtResource("3_7xmno")
+theme_override_font_sizes/font_size = 36
+text = "RhythmPrism Template"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=48507638]
+offset_left = -182.0
+offset_top = -176.0
+offset_right = 184.0
+offset_bottom = -114.0
+theme_override_font_sizes/font_size = 20
+text = "Here you can write the credits.
+Images, text, anything you want.
+
+Thanks for using RhythmPrism :D"
+horizontal_alignment = 1
+autowrap_mode = 3
