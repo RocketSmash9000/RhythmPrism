@@ -1,8 +1,5 @@
-- Add audio effects to bus depending on what sound is playing.
-	- Check if sound has associated effect.
-	- Add associated effect to corresponding audio bus.
-	- Remove effect to bus when polo is vanquished.
-- Loop overhaul (cleanup legacy code, make more optimised).
+- [Won't be fixed] Loop overhaul (cleanup legacy code, make more optimised).
+	- THE ISSUE WAS THE FUCKING TIMER. Now the first time each loop is played (and loaded into memory) has an imperceptible lag spike (or at least that's how it should be).
 - Create script/executable for easy mod making.
 	- Will need to be able to select all sprites for every polo.
 	- Let user make animations from interface.

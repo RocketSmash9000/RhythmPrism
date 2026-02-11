@@ -20,12 +20,14 @@ var target_polo: int = 0 # This stores the target polo of the Control Menu
 # And the amount of loops it takes to return to the first loop.
 # The loop indicator does not support more than 2 loops.
 # So you may want to add code to implement it.
-# There may be a delay of around 0.05 seconds or less before audio plays.
-# So if your sounds are 6 seconds, try subtracting 0.01 until the desired result.
-var loop_seconds = 6
-var loop_amount: int = 2
-var current_loop: int = 1
+# Since v1.0 there should be no delay when sounds play,
+var loop_seconds = 6 # Amount of seconds a loop takes to complete
+var loop_amount: int = 2 # Amount of loops to play before going back to the first loop
 
+var current_loop: int = 1 # Don't change this variable. It'll mess with the code
+
+# This doesn't mean no volume. It means that the volume is the same as the volume
+# of the audio files that play. A negative number will decrease volume and vice versa.
 var master_volume: float = 0.0
 
 func _ready() -> void:
@@ -41,13 +43,6 @@ func _process(_delta: float) -> void:
 	if get_viewport().get_mouse_position().y > 728: # If this triggers, the mouse is in the bottom part
 		mouse_in_bottom_part = true
 		mouse_in_top_part = false
-	
-	if reset:
-		await get_tree().create_timer(0.005).timeout # waits for 0.005 seconds
-		picked_polos.clear() # Clears the list containing all currently picked polos
-		current_loop = 1 # Resets the current loop to 1
-		reset = false
-		Log.debug("All polos reset!")
 	
 	# Sets the current loop to 1 if there are no picked polos
 	if picked_polos.is_empty():

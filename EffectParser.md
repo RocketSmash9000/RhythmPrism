@@ -6,7 +6,7 @@ The effect parser is a feature added in RhythmPrism v0.4. It grabs the effects l
 ## Breakdown
 - The first number (5 in the example) represents the polo number 1-20 (by default) to which the effect is associated.
 - "Reverb" is the name of the effect to apply. For a list of all the available effects, see `Possible effects`.
-- The following numbers are the options with which the effect initialises. If they're not found, default settinfs will apply.
+- The following numbers are the options with which the effect initialises. If they're not found, default settings will apply.
 
 ## Possible effects
 Here are the names of the possible appliable effects. They will only apply if the name is written exactly as it's listed. Writing in lowercase or uppercase doesn't make a difference. The settings appear in the same order as they should be used.
@@ -33,7 +33,7 @@ Here are the names of the possible appliable effects. They will only apply if th
 	- Wet: Defaults to 0.5. Ranges from 0 to 1. Amount of modified audio to output.
 	Each voice has its own settings. Due to complexity, these settings will be kept as default.
 - `Distort`: Will distort the original waveform, often creating a "crunchy" feel.
-	`["Reverb", "clip", 0, 16000, 0, 0]`
+	`["Distort", "clip", 0, 16000, 0, 0]`
 	- Mode: Defaults to "clip". The possible modes are:
 		- "clip": Cuts the top and bottom of the waveform.
 		- "atan" or "tan": No description provided in official documentation.

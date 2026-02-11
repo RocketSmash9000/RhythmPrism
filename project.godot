@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="RhythmPrism"
 config/description="An open source \"tool\" for Incredibox modmaking. Take back your modding!
 Official Incredibox mods are limited in what they can do. However, this engine doesn't have that limitation."
-config/version="0.4"
+config/version="1.0"
 run/main_scene="res://Scenes/info.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.6", "GL Compatibility")

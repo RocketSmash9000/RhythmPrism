@@ -2,7 +2,6 @@ extends AudioStreamPlayer
 
 var meta
 var sound_player
-var local_loop
 
 # This dictionary right here contains a list of every single audio file used for polos.
 # If (for example) polo 3 had only one loop instead of 2, make the two preload functions
@@ -34,8 +33,9 @@ const SOUNDS_DICT: Dictionary[int, Array] = {
 
 # For information on how to use this constant, please read 'EffectParser.md'.
 # Leave empty for no effects.
+# Only one effect is allowed per bus.
 const ASSOCIATED_EFFECTS: Dictionary[int, Array] = {
-	1: [],
+	1: [], # You can replace the brackets with '["Reverb", 0.8, 0.5, 1, 0, 1, 0.5]' to add the reverb effect
 	2: [],
 	3: [],
 	4: [],
@@ -60,52 +60,50 @@ const ASSOCIATED_EFFECTS: Dictionary[int, Array] = {
 var already_playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	local_loop = GlobalVars.current_loop
 	sound_player = LogStream.new("Polo/SoundPlayer" + str(get_meta("AudioID")))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if local_loop != GlobalVars.current_loop:
-		if $"../../..".first_polo:
-			sound_play()
-			$"../../..".first_polo = false
-			already_playing = true
-		elif already_playing:
-			sound_play()
-		local_loop = GlobalVars.current_loop
+	pass
 
-func sound_play() -> void:
+# When the signal is received, it will play the corresponding sound, only if the timer has reached
+# zero (aka when the first polo is placed) or if the timer has just been reset.
+func _when_parent_node_new_loop(loop: int) -> void:
+	# The script has a 75 millisecond tolerance for lag spikes
+	# Tolerance is expressed in that -0.075. In most cases it should be a big enough tolerance.
+	# If the mod is resource intensive, you should consider increasing the tolerance to -0.1.
+	if !$"../../../Loop".time_left <= (GlobalVars.loop_seconds-0.075) or $"../../../Loop".time_left == 0:
+		sound_play(loop)
+
+func sound_play(loop: int) -> void:
 	meta = get_parent().type # Save the ID of the sound to play stored in the polo
 	sound_player.debug("Meta = " + str(meta))
 	
-	#if GlobalVars.picked_polos.find(meta) == -1:
-		#sound_player.info("Sound corresponding to polo " + str(meta) + " not found in picked polos list! Stopping sound playback...")
-		#stop()
-		#return
+	if GlobalVars.picked_polos.find(meta) == -1:
+		sound_player.debug("Sound corresponding to polo " + str(meta) + " not found in picked polos list! Stopping sound playback...")
+		stop()
+		return
 	
 	if (meta != 0):
 		# This single line right here is what makes the sound play.
 		# Since v0.3.1 the sound loading has been overhauled to
 		# a less monolithic, hardcoded mess. One line is a lot prettier,
 		# don't you think?
-		set_stream(SOUNDS_DICT[meta][GlobalVars.current_loop-1])
+		set_stream(SOUNDS_DICT[meta][loop-1])
 		
+		# This other line is what parses the effects and adds them to their respective buses.
 		parseEffect(ASSOCIATED_EFFECTS[meta], get_parent().name.to_int())
 	else:
 		# Required for godot to not make polos play sounds
 		# when they're supposed to not play any sound.
 		return
 	
-	if !$"../../..".first_polo and !already_playing and !GlobalVars.picked_polos.is_empty():
-		await $"../../../Loop".timeout
-		play()
-		already_playing = true
-	else:
-		play()
-		already_playing = true
+	play()
+	already_playing = true
 
 # Gets passed an array of effects and the meta of a polo.
 # Will attach the effects of a polo to the appropriate bus.
+# It's quite the cool function, isn't it?
 func parseEffect(effect: Array, busID: int):
 	if effect.is_empty() or typeof(effect[0]) != TYPE_STRING:
 		sound_player.debug("Invalid data type of effect. No effect will apply.")
@@ -179,6 +177,7 @@ func parseEffect(effect: Array, busID: int):
 			sound_player.debug("Effect does not match any from the supported list. No effect will aply.")
 			return
 
+# Removes the effect associated with a polo when it's banished to the shadow realm
 func removeEffect(busID: int):
 	AudioServer.remove_bus_effect(busID, 0)
 	sound_player.debug("Removed effect from polo number " + str(busID))

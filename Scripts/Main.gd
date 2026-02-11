@@ -1,5 +1,6 @@
 extends Node2D
 # Define variables under this comment and above func _ready()
+var logger
 
 var debug_text = ""
 
@@ -20,10 +21,14 @@ var brightness_sensitivity: float = 1
 # Higher values will (probably) result in faster speeds when returning to original value
 var smoothing_speed: float = 10
 
+signal newLoop(loop: int)
+signal resetPolos()
+
 # Called every time the node gets loaded into a scene.
 func _ready() -> void:
 	# Sets the wait time of the timer to the duration of a loop
 	$Loop.wait_time = GlobalVars.loop_seconds
+	logger = LogStream.new("Main")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,7 +43,7 @@ func _process(delta: float) -> void:
 		$"Static elements/Debug".visible = !$"Static elements/Debug".visible
 	
 	if $"Static elements/Debug".visible: # Displays a bunch of text in real time
-		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop) + "\n" + "First polo: " + str(first_polo)
+		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Current loop: " + str(GlobalVars.current_loop) + "\n" + "First polo: " + str(first_polo)
 		$"Static elements/Debug".text = (debug_text) + "\n" + "Volume: " + str(GlobalVars.master_volume)
 	
 	if show_menu: # Shows the menu when the menu button is pressed
@@ -83,7 +88,7 @@ func _process(delta: float) -> void:
 		once = false
 	
 	# if there are no polos or if the polos were reset, stop the timer.
-	if (!once and GlobalVars.picked_polos.is_empty()) or GlobalVars.reset:
+	if (!once and GlobalVars.picked_polos.is_empty()):
 		$Loop.stop()
 		once = true
 	
@@ -107,18 +112,22 @@ func _when_close_menu_pressed() -> void:
 	hide_menu = true
 
 func _when_reset_button_pressed() -> void:
-	GlobalVars.reset = true
+	# Emits a signal to all polos so that they reset
+	logger.debug("Reset button pressed! Resetting...")
+	emit_signal("resetPolos")
 
 
 func _when_loop_timeout() -> void:
 	# Once the timer fires an alarm, set the current loop to +1 of its old value
 	if !GlobalVars.picked_polos.is_empty():
 		GlobalVars.current_loop += 1
-		# Or set it back to 1 if it's higher than the max amount of loops
 		if GlobalVars.current_loop > GlobalVars.loop_amount:
 			GlobalVars.current_loop = 1
-	else:
-		GlobalVars.reset = true # If the timer fires an alarm but the list is empty, force a reset.
+		emit_signal("newLoop", GlobalVars.current_loop)
+		# Or set it back to 1 if it's higher than the max amount of loops
+	else: # If the timer fires an alarm but the list is empty, force a reset.
+		logger.debug("Timer timed out and there's no polos. Forcing a reset.")
+		emit_signal("resetPolos")
 	
 	# These are used to sync the progress bar to the timer in case it is desynced
 	if $"Static elements/ProgressBar".position.x < 1736 and GlobalVars.current_loop == 2:

@@ -77,7 +77,7 @@ offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("9_wwoys")
 theme_override_font_sizes/font_size = 45
-text = "RhythmPrism v0.4"
+text = "RhythmPrism v1.0"
 horizontal_alignment = 1
 
 [node name="Credits_screen" parent="." unique_id=2094439433 instance=ExtResource("8_b57nr")]

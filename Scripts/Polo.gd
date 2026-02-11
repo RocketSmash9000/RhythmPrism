@@ -4,7 +4,6 @@ extends Area2D
 var mouse_in = false
 var picked = false
 var type = 0
-var local_loop
 
 const default_anim = preload("res://Assets/Unselected_polos/Unselected.tres")
 
@@ -41,7 +40,7 @@ func _process(_delta: float) -> void:
 			polostream.debug("Polo number " + str(get_meta("PoloID")) + " picked with type " + str(type))
 			GlobalVars.picked_polos.append(type) # Adds polo to the used list
 			GlobalVars.icon_meta = 0 # Clears the icon metadata
-			$AudioStreamPlayer.sound_play()
+			$AudioStreamPlayer._when_parent_node_new_loop(GlobalVars.current_loop) # Used to first play
 			if GlobalVars.current_loop == 1:
 				# Sets the polo animation to its corresponding type
 				$Sprite2D.sprite_frames = GlobalVars.set_polo_animation(type)
@@ -56,14 +55,10 @@ func _process(_delta: float) -> void:
 				polostream.debug("Animation for 2nd loop set!")
 			if $"../..".first_polo:
 				$"../..".first_polo = false
-			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
 			vanquish()
 			$AudioStreamPlayer.already_playing = false
-	
-	if GlobalVars.reset: # Resets the polo when the reset is called
-		vanquish()
 	
 	if GlobalVars.mouse_in_bottom_part:
 		var animator = create_tween() # This will move the Control Menu to whatever polo the mouse is on
@@ -100,6 +95,9 @@ func _when_polo_vanquisher_pressed() -> void:
 	if GlobalVars.target_polo == get_meta("PoloID"):
 		vanquish()
 
+# When the reset signal is passed, reset every polo
+func _when_reset() -> void:
+	vanquish()
 
 func vanquish():
 	# This makes the polo become unselected again
