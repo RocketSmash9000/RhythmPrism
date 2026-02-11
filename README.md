@@ -18,6 +18,11 @@ Take into account that RhythmPrism is still in its early stages of development. 
 ## Download the project
 You can download RP from the [Releases](https://github.com/RocketSmash9000/RhythmPrism/releases/latest) tab. Decompress and import the project in Godot as seen in [Edit the project](https://github.com/RocketSmash9000/RhythmPrism/?tab=readme-ov-file#edit-the-project). Alternatively, you can clone the entire github repository using the steps below.
 
+## Documentation
+To learn how to make a mod using RhythmPrism, please visit [this page](https://rocketsmash9000.github.io/RhythmPrism/wiki) (bear in mind that it's in development right now).
+
+To learn how to add sound effects to polos, please visit [this other page](https://github.com/RocketSmash9000/RhythmPrism/blob/main/EffectParser.md). Note that it will be moved to the wiki soon™.
+
 ## Cloning the project
 The only advantage of cloning is that updates are technically semi-automatic. If you alter the code, please **DO NOT** update (`git pull`), as it will likely mess with your project.
 
