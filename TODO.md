@@ -1,5 +1,8 @@
 - [Won't be fixed] Loop overhaul (cleanup legacy code, make more optimised).
 	- THE ISSUE WAS THE FUCKING TIMER. Now the first time each loop is played (and loaded into memory) has an imperceptible lag spike (or at least that's how it should be).
+- Make reverb effect linger for a few seconds after polo is vanquished.
+	- Create a bus for every polo number, add effect to said bus. Redirect audiostreamplayer's bus to corresponding bus.
+	- There will be more buses but each polo will have its own independent effect.
 - Create script/executable for easy mod making.
 	- Will need to be able to select all sprites for every polo.
 	- Let user make animations from interface.
