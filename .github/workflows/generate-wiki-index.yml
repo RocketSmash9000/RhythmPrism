@@ -1,0 +1,34 @@
+name: Generate Wiki Index
+
+on:
+  push:
+    paths:
+      - 'docs/wiki/**'
+      - '.github/workflows/generate-wiki-index.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate index.json
+        run: |
+          echo "Generating recursive index.json..."
+
+          find docs/wiki -type f -name "*.html" \
+            ! -name "index.html" \
+            | sed 's|docs/wiki/||' \
+            | jq -R . \
+            | jq -s . \
+            > docs/wiki/index.json
+
+      - name: Commit index.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add docs/wiki/index.json
+          git commit -m "Auto-update wiki index.json" || echo "No changes"
+          git push

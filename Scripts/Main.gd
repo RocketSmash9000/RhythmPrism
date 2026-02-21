@@ -16,10 +16,10 @@ var first_polo = true # True when there are no polos picked
 
 # Change this if you want your background to react more aggresively.
 # Change to 0 to disable.
-var brightness_sensitivity: float = 1
+@export var brightness_sensitivity: float = 1
 
 # Higher values will (probably) result in faster speeds when returning to original value
-var smoothing_speed: float = 10
+@export var smoothing_speed: float = 10
 
 signal newLoop(loop: int)
 signal resetPolos()

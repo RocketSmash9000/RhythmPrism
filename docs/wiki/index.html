@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RhythmPrism</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="../assets/css/Azarus-Navbar.css">
+    <link rel="stylesheet" href="../assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="../assets/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Centered-Brand-Dark-icons.css">
+    <link rel="stylesheet" href="../assets/css/responsive-navbar.css">
+    <link rel="stylesheet" href="../assets/css/vertical-tabs-with-links-and-contents.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light" style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
+        <div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div><a class="navbar-brand" href="#"><span>RhythmPrism</span> </a></div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+                <ul class="navbar-nav nav-right">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html" style="color: rgba(224,217,217,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../features.html" style="color: rgba(224,217,217,0.9);">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: rgba(224,217,217,0.9);">Wiki</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/RocketSmash9000/RhythmPrism/" style="color: rgba(224,217,217,0.9);" target="_blank">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center w-75"><h1>Wiki Pages</h1>
+<ul id="tree" class="list-group text-start"></ul>
+
+<script>
+function buildTree(paths) {
+  const root = {};
+
+  paths.forEach(path => {
+    const parts = path.split("/");
+    let current = root;
+
+    parts.forEach((part, index) => {
+      if (!current[part]) {
+        current[part] = index === parts.length - 1 ? null : {};
+      }
+      current = current[part];
+    });
+  });
+
+  return root;
+}
+
+function renderTree(obj, parentElement, basePath = "") {
+  Object.keys(obj).sort().forEach(key => {
+    const li = document.createElement("li");
+    li.className = "list-group-item bg-dark text-light border-secondary";
+
+    if (obj[key] === null) {
+      // File
+      const link = document.createElement("a");
+      link.href = basePath + key;
+      link.textContent = key.replace(".html", "");
+      link.className = "text-decoration-none text-info";
+      li.appendChild(link);
+    } else {
+      // Folder
+      const header = document.createElement("div");
+      header.className = "fw-bold";
+      header.style.cursor = "pointer";
+      header.innerHTML = "📁 " + key;
+
+      const nested = document.createElement("ul");
+      nested.className = "list-group mt-2 ms-3";
+      nested.style.display = "none";
+
+      header.onclick = () => {
+        nested.style.display =
+          nested.style.display === "none" ? "block" : "none";
+      };
+
+      renderTree(obj[key], nested, basePath + key + "/");
+
+      li.appendChild(header);
+      li.appendChild(nested);
+    }
+
+    parentElement.appendChild(li);
+  });
+}
+
+fetch("./index.json")
+  .then(res => res.json())
+  .then(files => {
+    const treeData = buildTree(files);
+    const treeRoot = document.getElementById("tree");
+    renderTree(treeData, treeRoot);
+  });
+</script></div>
+    <footer class="font-monospace text-center bg-body" data-bs-theme="dark">
+        <div class="container py-4 py-lg-5">
+            <p class="text-body mb-0">Copyright © 2026 RocketSmash</p>
+        </div>
+    </footer>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

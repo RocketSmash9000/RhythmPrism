@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RhythmPrism</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="../../assets/css/Azarus-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="../../assets/css/Navbar-Centered-Brand-Dark-icons.css">
+    <link rel="stylesheet" href="../../assets/css/responsive-navbar.css">
+    <link rel="stylesheet" href="../../assets/css/vertical-tabs-with-links-and-contents.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light" style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
+        <div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div><a class="navbar-brand" href="#"><span>RhythmPrism</span> </a></div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+                <ul class="navbar-nav nav-right">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html" style="color: rgba(224,217,217,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../features.html" style="color: rgba(224,217,217,0.9);">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: rgba(224,217,217,0.9);">Wiki</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/RocketSmash9000/RhythmPrism/" style="color: rgba(224,217,217,0.9);" target="_blank">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid w-75">
+        <h1 class="display-3 text-center">Basic editor use</h1>
+        <p>In this guide you will learn how to import, export and open a Godot project, as well as some basic knowledge about where everything is. This guide assumes you have no knowledge of how to use Godot. If you have experience or you think you can figure out things yourself, you may skip this guide.</p>
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1">Download Godot</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Import projects</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">Open projects</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-4">Export projects</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-5">Godot's UI</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" role="tabpanel" id="tab-1">
+                    <p>You can download Godot from the <a href="https://godotengine.org/" target="_blank">official website</a>. Please note that it comes as a standalone app. This means that you will not need to install anything. If you double click the executable file (godot-nonsense-win64.exe), it will open the project menu. Don't open nor delete the file that has "console" in the end. It's important and it not being there may cause problems.<br><br>You can place the executables the folder of your choice. It's recommended that you create a shortcut to the aforementioned file and place it on the desktop for easy access. It's your choice, though.<br><br>Godot for MacOS may require installation, as it's a more strict OS. I don't own a Mac, so I unfortunately can't test if it works straight out of the box or if it needs installation.</p>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="tab-2">
+                    <p>First, you will need to open Godot. In the top bar menu, you will see a few buttons. Press the one that says "<em>Import</em>". It will open a window for you to select where the project is located. Navigate to the folder where the project is located, and select the "<em>project.godot</em>" file within it. Next, press the "<em>Open</em>" button located at the bottom of the window.<br><br>If you did it right, Godot should show the project in the main screen.</p>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="tab-3">
+                    <p>You can open projects by double clicking on the project. You can also click on the project once and then click on the "<em>Edit</em>" button.</p>
+                </div>
+                <div class="tab-pane" role="tabpanel" id="tab-4">
+                    <p>Navigate to the folder that contains the whole project. There is no built-in way to export a project, since everything is mostly plain text files in different formats. However, you can compress the project folder and share that with someone else. They can then decompress the zip file and import the project.</p>
+                </div>
+                <div class="tab-pane active" role="tabpanel" id="tab-5">
+                    <p>Godot's UI can be broken into a few key components, which are listed below.</p>
+                    <h3>Left panes</h3>
+                    <div class="row">
+                        <div class="col-auto"><img src="../../assets/img/basic-tutorial/left-pane.png" width="152" height="509"></div>
+                        <div class="col">
+                            <p>These two panes contain the nodes inside a given scene (including their hierarchy), and a view of all the folders inside the project.<br><br>This image is an example of how the left pane looks like. Please note that its appearance may vary depending on the theme the editor has, but its functionality and structure remains the same.&nbsp;<br><br>Node hierarchy is easy to understand. There's what's called a "<strong>parent node</strong>", which is the root of the scene. Think of it as the conductor of an orchestra. All other nodes depend on the parent to be able to function, and there can only be one. <strong>Children nodes</strong>&nbsp;are nodes that are attached in some way to another node. For example, the "Static elements" node is a child node of the parent node. Child nodes can also have children nodes.<br><br>The file view in the bottom panel lets you explore the contents of the project without having to use an external file explorer. Godot treats the folder in which the project is in as special, so instead of having a normal name, it's called "<em>res://</em>". You can see it as the parent node for files.</p>
+                        </div>
+                    </div>
+                    <h3>Right panes</h3>
+                    <div class="row">
+                        <div class="col-auto"><img src="../../assets/img/basic-tutorial/right-pane.png" width="155" height="334"></div>
+                        <div class="col">
+                            <p>These panes are what lets you alter different parameters of the nodes.<br><br>They will generally look like this, although the content may vary depending on what node is selected, as each node has its functionality. There is more functionality to this pane which we won't talk about because it goes out of the scopes of this guide.</p>
+                        </div>
+                    </div>
+                    <h3>Top bar</h3><img class="img-fluid" width="1591" height="45" src="../../assets/img/basic-tutorial/top-bar.png">
+                    <p>As its name implies, this bar sits at the top of the app. It has a few utilities. The buttons we will use the most are the "2D", "Script" and the play button next to "AssetLib". "2D" switches to the 2D editor view of the project. You can see and edit what the user would see in the screen. The "Script" button switches your view to a text editor where you can write and modify code. The play button will play the project in a new window, where you can playtest.</p>
+                    <h3>Bottom bar</h3><img class="img-fluid" width="1694" height="46" src="../../assets/img/basic-tutorial/bottom-bar.png">
+                    <p>You will probably not need to use this bar much, except for opening a few menus like the SpriteFrames editor for polo animations. The <em>Output</em>&nbsp;menu is useful for debugging, if there's something that doesn't work as intended. If there's a menu open, press again on the button to close it.</p>
+                    <h3>Main view</h3>
+                    <p>The center of the UI, where you can edit scripts, visualize scenes, change node positions and so much more. No image is included here, as it normally takes up a whole lot of screen space, and would therefore take up a big portion of the screen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

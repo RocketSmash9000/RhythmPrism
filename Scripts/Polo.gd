@@ -1,11 +1,11 @@
 extends Area2D
 # Define variables under this comment and above func _ready()
 
-var mouse_in = false
-var picked = false
-var type = 0
+var mouse_in: bool = false
+var picked: bool = false
+var type: int = 0
 
-const default_anim = preload("res://Assets/Unselected_polos/Unselected.tres")
+const default_anim: Resource = preload("res://Assets/Unselected_polos/Unselected.tres")
 
 var polostream
 
