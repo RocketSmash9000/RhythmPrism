@@ -43,9 +43,12 @@ function buildTree(paths) {
     let current = root;
 
     parts.forEach((part, index) => {
+      const isLast = index === parts.length - 1;
+
       if (!current[part]) {
-        current[part] = index === parts.length - 1 ? null : {};
+        current[part] = isLast ? { __file: true } : {};
       }
+
       current = current[part];
     });
   });
@@ -55,18 +58,36 @@ function buildTree(paths) {
 
 function renderTree(obj, parentElement, basePath = "") {
   Object.keys(obj).sort().forEach(key => {
+
+    if (key === "__file") return;
+
     const li = document.createElement("li");
     li.className = "list-group-item bg-dark text-light border-secondary";
 
-    if (obj[key] === null) {
-      // File
+    const value = obj[key];
+    const isFile = value.__file;
+
+    if (isFile) {
+      // FILE CASE
+
+      let displayName = key.replace(".html", "");
+
+      // If file is index.html → use folder name instead
+      if (key === "index.html") {
+        const folderName = basePath.split("/").filter(Boolean).pop();
+        displayName = folderName || "Home";
+      }
+
       const link = document.createElement("a");
       link.href = basePath + key;
-      link.textContent = key.replace(".html", "");
+      link.textContent = displayName;
       link.className = "text-decoration-none text-info";
+
       li.appendChild(link);
+
     } else {
-      // Folder
+      // FOLDER CASE
+
       const header = document.createElement("div");
       header.className = "fw-bold";
       header.style.cursor = "pointer";
@@ -81,7 +102,7 @@ function renderTree(obj, parentElement, basePath = "") {
           nested.style.display === "none" ? "block" : "none";
       };
 
-      renderTree(obj[key], nested, basePath + key + "/");
+      renderTree(value, nested, basePath + key + "/");
 
       li.appendChild(header);
       li.appendChild(nested);

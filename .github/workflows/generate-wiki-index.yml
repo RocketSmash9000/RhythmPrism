@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "Generating recursive index.json..."
 
-          FILES=$(find ./docs/wiki -type f -name "*.html" ! -name "index.html")
+          FILES=$(find ./docs/wiki -type f -name "*.html")
 
           if [ -z "$FILES" ]; then
             echo "No HTML files found."
@@ -34,6 +34,7 @@ jobs:
           else
             echo "$FILES" \
               | sed 's|./docs/wiki/||' \
+              | grep -v '^index\.html$' \
               | sort \
               | jq -R . \
               | jq -s . \
