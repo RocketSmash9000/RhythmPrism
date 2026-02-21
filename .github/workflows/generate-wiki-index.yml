@@ -17,18 +17,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug folder structure (temporary)
+        run: |
+          echo "Listing docs/wiki directory:"
+          ls -R docs/wiki || echo "docs/wiki not found"
+
       - name: Generate recursive index.json
         run: |
           echo "Generating recursive index.json..."
 
-          # Find all HTML files recursively except index.html
-          find docs/wiki -type f -name "*.html" \
-            ! -name "index.html" \
-            | sed 's|docs/wiki/||' \
-            | sort \
-            | jq -R . \
-            | jq -s . \
-            > docs/wiki/index.json
+          FILES=$(find ./docs/wiki -type f -name "*.html" ! -name "index.html")
+
+          if [ -z "$FILES" ]; then
+            echo "No HTML files found."
+            echo "[]" > docs/wiki/index.json
+          else
+            echo "$FILES" \
+              | sed 's|./docs/wiki/||' \
+              | sort \
+              | jq -R . \
+              | jq -s . \
+              > docs/wiki/index.json
+          fi
 
       - name: Commit and push if changed
         run: |
@@ -37,7 +47,6 @@ jobs:
 
           git add docs/wiki/index.json
 
-          # Only commit if there are changes
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update wiki index.json"
             git push
