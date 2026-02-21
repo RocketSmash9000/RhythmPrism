@@ -17,21 +17,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate index.json
+      - name: Generate recursive index.json
         run: |
           echo "Generating recursive index.json..."
 
+          # Find all HTML files recursively except index.html
           find docs/wiki -type f -name "*.html" \
             ! -name "index.html" \
             | sed 's|docs/wiki/||' \
+            | sort \
             | jq -R . \
             | jq -s . \
             > docs/wiki/index.json
 
-       - name: Commit index.json
-         run: |
+      - name: Commit and push if changed
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add docs/wiki/index.json
-          git diff --cached --quiet || git commit -m "Auto-update wiki index.json"
-          git push
+
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update wiki index.json"
+            git push
+          else
+            echo "No changes to commit"
+          fi
