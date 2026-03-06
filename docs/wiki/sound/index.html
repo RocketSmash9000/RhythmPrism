@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RhythmPrism</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="../../assets/css/Azarus-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="../../assets/css/Navbar-Centered-Brand-Dark-icons.css">
+    <link rel="stylesheet" href="../../assets/css/responsive-navbar.css">
+    <link rel="stylesheet" href="../../assets/css/vertical-tabs-with-links-and-contents.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light" style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
+        <div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div><a class="navbar-brand" href="#"><span>RhythmPrism</span> </a></div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+                <ul class="navbar-nav nav-right">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html" style="color: rgba(224,217,217,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../features.html" style="color: rgba(224,217,217,0.9);">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: rgba(224,217,217,0.9);">Wiki</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/RocketSmash9000/RhythmPrism/" style="color: rgba(224,217,217,0.9);" target="_blank">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container w-75">
+        <h1 class="display-3 text-center">Adding Sounds</h1>
+        <p class="text-start">Adding sounds to polos is not that hard. As you will be able to see, it's fairly easy. But first of all, you will need to make the sounds.</p>
+        <h3>Sound formatting</h3>
+        <p>RhythmPrism requires sounds to be formatted in a specific way for better modularity. Audio files need to be split into two smaller files, one for each loop part. For example, if a polo has two different loops, RP would only load the sound file corresponding to the active loop instead of using an audio file that contains both loops. This means you'll need to have two files prepared, two for each polo. <em>There's 20 polos by default, this means 40 files in total.</em>&nbsp;The type of file (<em>wav, mp3, ogg, etc</em>) can be whatever you want as long as Godot can read it. I recommend using either the <em>OGG</em> or the <em>wav</em> format. Either of them have their advantages? <em>OGG</em> has great compression, which means that files don't take as much space. But they don't sound as good as a <em>wav</em> file, that's uncompressed (but takes more space).</p>
+        <h3>Importing sounds</h3>
+        <p>Once you have all sounds prepared, all you need to do is move the files into <em>res://Sound/</em>. That path corresponds to the <em>Sound</em>&nbsp;folder inside the project directory. Godot will automatically detect and import them into the project. You'll see them appear in the bottom left pane.</p>
+        <h3>Assigning sounds to polos</h3>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-auto"><img src="../../assets/img/sound/sounds-dict.png" width="474" height="398"></div>
+                    <div class="col">
+                        <p>For this you're gonna need to read a bit of the code. Don't worry though. You don't need to do anything complicated. Open the <em>Scripts</em>&nbsp;folder and open <em>AudioPlayer.gd</em>. In line 10, you'll see code that looks like the image to the left. If you only see line 10, press on the arrow next to the line number to unfold the rest of the lines.<br><br>The <em>1, 2, 3, ...</em>&nbsp;numbers you see represent each polo. So line 12 has the sounds for polo 1, line 13 the sounds of polo 2 and so on. The <em>preload</em>&nbsp;functions load the sounds into memory when the project is run. The first one corresponds to the first loop and the second one corresponds to loop 2.<br><br>All you need to do is replace where it says <em>"res://Sound/V5 FitnessGram 1.mp3"</em>&nbsp;with the path to the corresponding sound (including quotation marks). You can also drag and drop the sound in between the <em>preload</em>&nbsp;parentheses to place the path.<br><br>One line could look like this:<br><br><code class="font-monospace">6: [preload("res://Sound/Loop1-voice6.ogg"), preload("res://Sound/Loop2-voice6.wav")]</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>If a polo has only one loop because it's the same in both loops, then both preload functions can be the same. For example:<br><br><code>12: [preload("res://Sound/voice12.wav"), preload("res://Sound/voice12.wav")]</code></p>
+    </div>
+    <footer class="font-monospace text-center bg-body" data-bs-theme="dark">
+        <div class="container py-4 py-lg-5">
+            <p class="text-body mb-0">Copyright © 2026 RocketSmash</p>
+        </div>
+    </footer>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
