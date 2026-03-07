@@ -30,8 +30,19 @@ var current_loop: int = 1 # Don't change this variable. It'll mess with the code
 # of the audio files that play. A negative number will decrease volume and vice versa.
 var master_volume: float = 0.0
 
+# RP v1.x supports two versions of buses: Legacy and V2.
+# Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).
+# V2 uses 20 (plus Master) buses. Each bus corresponds to one polo and is independent.
+# Legacy will eventually be unsupported in future versions. It's recommended to use V2.
+# If you want to use Legacy, change the number to 1.
+# To give a polo a certain effect open the Audio menu in the bottom bar and edit its
+# corresponding bus effect.
+const bus_layout = 2
+
 func _ready() -> void:
-	pass
+	# Switches bus layout to Legacy if project isn't set to use V2.
+	if bus_layout != 2:
+		AudioServer.set_bus_layout(preload("res://default_bus_layout.tres"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

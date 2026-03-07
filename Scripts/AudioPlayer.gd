@@ -31,6 +31,8 @@ const SOUNDS_DICT: Dictionary[int, Array] = {
 	20: [preload("res://Sound/V5 FitnessGram 1.mp3"), preload("res://Sound/V5 FitnessGram 2.mp3")]
 }
 
+# This constant is part of Legacy effect processing.
+# Please use V2 instead.
 # For information on how to use this constant, please read 'EffectParser.md'.
 # Leave empty for no effects.
 # Only one effect is allowed per bus.
@@ -91,8 +93,11 @@ func sound_play(loop: int) -> void:
 		# don't you think?
 		set_stream(SOUNDS_DICT[meta][loop-1])
 		
-		# This other line is what parses the effects and adds them to their respective buses.
-		parseEffect(ASSOCIATED_EFFECTS[meta], get_parent().name.to_int())
+		if GlobalVars.bus_layout != 2:
+			# This other line is what parses the effects and adds them to their respective buses.
+			parseEffect(ASSOCIATED_EFFECTS[meta], get_parent().name.to_int())
+		else:
+			bus = AudioServer.get_bus_name(meta)
 	else:
 		# Required for godot to not make polos play sounds
 		# when they're supposed to not play any sound.
@@ -105,6 +110,10 @@ func sound_play(loop: int) -> void:
 # Will attach the effects of a polo to the appropriate bus.
 # It's quite the cool function, isn't it?
 func parseEffect(effect: Array, busID: int):
+	if GlobalVars.bus_layout == 2:
+		sound_player.debug("Not using Legacy mode. Effect parsing will not take effect.")
+		return
+	
 	if effect.is_empty() or typeof(effect[0]) != TYPE_STRING:
 		sound_player.debug("Invalid data type of effect. No effect will apply.")
 		return
@@ -179,5 +188,8 @@ func parseEffect(effect: Array, busID: int):
 
 # Removes the effect associated with a polo when it's banished to the shadow realm
 func removeEffect(busID: int):
+	if GlobalVars.bus_layout == 2:
+		sound_player.debug("V2 bus layout is in use. Returning...")
+		return
 	AudioServer.remove_bus_effect(busID, 0)
 	sound_player.debug("Removed effect from polo number " + str(busID))

@@ -54,8 +54,7 @@ var spectrum
 func _ready() -> void:
 	spectrum = AudioServer.get_bus_effect_instance(0, 0)
 
-
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
@@ -154,7 +153,6 @@ scale = Vector2(0.676842, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01" unique_id=1462281115]
-bus = &"01"
 script = ExtResource("14_futju")
 metadata/AudioID = 1
 
@@ -175,7 +173,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/02" unique_id=1978829662]
-bus = &"02"
 script = ExtResource("14_futju")
 metadata/AudioID = 2
 
@@ -196,7 +193,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/03" unique_id=1259833645]
-bus = &"03"
 script = ExtResource("14_futju")
 metadata/AudioID = 3
 
@@ -217,7 +213,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/04" unique_id=1195842606]
-bus = &"04"
 script = ExtResource("14_futju")
 metadata/AudioID = 4
 
@@ -238,7 +233,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/05" unique_id=124590939]
-bus = &"05"
 script = ExtResource("14_futju")
 metadata/AudioID = 5
 
@@ -259,7 +253,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/06" unique_id=1691833788]
-bus = &"06"
 script = ExtResource("14_futju")
 metadata/AudioID = 6
 
@@ -280,7 +273,6 @@ scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/07" unique_id=1505567374]
-bus = &"07"
 script = ExtResource("14_futju")
 metadata/AudioID = 7
 

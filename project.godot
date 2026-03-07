@@ -29,7 +29,7 @@ boot_splash/minimum_display_time=25
 
 [audio]
 
-buses/default_bus_layout="uid://lclaii0d6nxf"
+buses/default_bus_layout="uid://cx32tjcosyokc"
 driver/output_latency=5
 
 [autoload]

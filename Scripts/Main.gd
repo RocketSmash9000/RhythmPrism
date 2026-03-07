@@ -150,10 +150,8 @@ func get_music_amplitude() -> float:
 	# All these variables have been assigned a type beforehand.
 	# This way they will not get assigned a different type and break.
 	
-	# Get the index of the "Master" audio bus.
-	var master_bus_index: int = AudioServer.get_bus_index("Master")
 	# The spectrum analyzer effect is at slot 0 on the Master bus.
-	var spectrum_analyzer = AudioServer.get_bus_effect_instance(master_bus_index, 0)
+	var spectrum_analyzer = AudioServer.get_bus_effect_instance(0, 0)
 	
 	if spectrum_analyzer:
 		# Get the magnitude (in dB) for a frequency range where the beat is prominent.
