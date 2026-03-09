@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RhythmPrism</title>
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="../../assets/css/Azarus-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="../../assets/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="../../assets/css/Navbar-Centered-Brand-Dark-icons.css">
+    <link rel="stylesheet" href="../../assets/css/responsive-navbar.css">
+    <link rel="stylesheet" href="../../assets/css/vertical-tabs-with-links-and-contents.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light" style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
+        <div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div><a class="navbar-brand" href="#"><span>RhythmPrism</span> </a></div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+                <ul class="navbar-nav nav-right">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html" style="color: rgba(224,217,217,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../features.html" style="color: rgba(224,217,217,0.9);">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html" style="color: rgba(224,217,217,0.9);">Wiki</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/RocketSmash9000/RhythmPrism/" style="color: rgba(224,217,217,0.9);" target="_blank">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container w-75">
+        <h1 class="display-3 text-center">Adding Effects</h1>
+        <p>Since update v1.0-<a href="https://github.com/RocketSmash9000/RhythmPrism/commit/451d58d02b22a988acd6fb28a3635edcc6ae5817" target="_blank">451d58d</a> the way of adding effects has been changed in favor of something more modular. This guide will teach you how to add effects for both the V2 bus layout and the Legacy (and now deprecated) bus layout.</p>
+        <h3>Understanding buses</h3>
+        <p>Before continuing with this guide, it's best to first explain what buses are. An audio bus is basically something like an audio track in a DAW. Being able to play only one track at a time is lame. That's why we have multiple audio buses. We might want a track for drums, another for the melody, and another for the voice. And they all have to play at the same time. Godot accomplishes this with buses. The <em>Master</em>&nbsp;bus is the one responsible for merging the audio of other buses together and playing it through the speakers. The rest of the buses send different audios to the <em>Master</em>&nbsp;bus in order for the audio to be played.</p>
+        <h3>V2 bus layout (default)</h3><img class="img-fluid" width="1846" height="651" src="../../assets/img/sound/v2-bus-layout.png">
+        <p>By default, the V2 layout will be enabled unless specified otherwise in the configuration. The layout is fairly easy to understand. There are 21 different buses. Each of the buses corresponds to a different polo. They're labeled so that you know the configuration order. The <em>Polo 1</em>&nbsp;bus plays the audio of the first beat. <em>Polo 2</em>&nbsp;plays the audio of the second beat, and so on. To add an effect, simply press on the dropdown menu that says <em>Add Effect</em>. All you have to do is select the effect you want polo number X to have. For example, you might want to add reverb to it.<br><br>Once you select the effect, you will see something like in <em>Master</em>. The Effect will have a checkmark. To enable/disable the effect, simply click on that checkmark. To configure the effect, click on the effect you want to configure. The right panel will have changed to display the configuration of the effect. You will not be able to dynamically change the effect configuration (through the editor) while the game is running. This means you will need to configure and test run the project a few times to get it right.<br><br>If you have more than 20 polos in your mod, add as many buses as extra polos.<br><br>To remove an added effect, right click the effect and click <em>Remove</em>. That'll remove the effect from the bus.<br><br>It is highly recommended that you don't touch the <em>Master</em>&nbsp;bus and its effects unless you know what you're doing. If you want to disable background reactivity, just set the brightness sensitivity variable at the Main scene to 0.</p>
+        <h3>Legacy layout (deprecated)</h3><img class="img-fluid" width="1839" height="652" src="../../assets/img/sound/legacy-bus-layout.png">
+        <p>The legacy bus layout is composed of 8 buses. One for each of the seven playing polos and <em>Master</em>. Since there are more polos than buses, the method of adding an effect is through code. You will need to modify the <em>AudioPlayer.gd</em>&nbsp;script to add your custom effect. There is a document explaining how to add effects <a href="https://github.com/RocketSmash9000/RhythmPrism/blob/main/EffectParser.md" target="_blank">here</a>. The Legacy layout is very limited to what it can do and the effects it can hold. That's why it's been deprecated in favor of a much easier solution that allows for much more. It will not receive any support and will eventually be removed from the code in later versions of RhythmPrism.</p>
+    </div>
+    <footer class="font-monospace text-center bg-body" data-bs-theme="dark">
+        <div class="container py-4 py-lg-5">
+            <p class="text-body mb-0">Copyright © 2026 RocketSmash</p>
+        </div>
+    </footer>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

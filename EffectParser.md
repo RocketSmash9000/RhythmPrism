@@ -1,5 +1,5 @@
 # Effect parser
-The effect parser is a feature added in RhythmPrism v0.4. It grabs the effects listed in an array of effects and applies them to the audio bus of the corresponding polo. To correctly apply the effects, you will need to specify the effects in the `associated_effects` constant following the examples:
+The effect parser is a feature added in RhythmPrism v0.4. It grabs the effects listed in an array of effects and applies them to the audio bus of the corresponding polo. To correctly apply the effects, you will need to specify the effects in the `ASSOCIATED_EFFECTS` constant following the examples:
 `5: ["Reverb", 0.8, 0.5, 1, 0, 1, 0.5],`
 `5: ["Reverb"],`
 

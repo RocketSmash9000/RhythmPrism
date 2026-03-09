@@ -77,5 +77,5 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("mute"):
 		AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
 
-func set_polo_animation(meta):
+func set_polo_animation(meta) -> Resource:
 	return load("res://Assets/Polos/" + str(meta) + "/" + str(meta) + ".tres")
