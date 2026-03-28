@@ -99,6 +99,7 @@ func _when_polo_vanquisher_pressed() -> void:
 func _when_reset() -> void:
 	vanquish()
 
+## Makes the polo become unselected again
 func vanquish():
 	# This makes the polo become unselected again
 	polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1gu1d6d0e30h" path="res://Assets/UI_elements/Info/play_hover.svg" id="6_3f5wr"]
 [ext_resource type="PackedScene" uid="uid://biyh28ioiicg1" path="res://Scenes/Credits.tscn" id="8_b57nr"]
 [ext_resource type="FontFile" uid="uid://d32un4lu5l7wx" path="res://Assets/UI_elements/Other/ProFontWindowsNerdFontMono-Regular.ttf" id="9_wwoys"]
+[ext_resource type="PackedScene" uid="uid://bldv1qyirswui" path="res://Scenes/LoreBook.tscn" id="10_p8sgs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_exksx"]
 shader = ExtResource("2_k6ima")
@@ -67,6 +68,15 @@ texture_normal = ExtResource("4_ktnio")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="LoreButton" type="TextureButton" parent="Container/SubViewport" unique_id=1696803993]
+offset_left = 1744.0
+offset_top = -256.0
+offset_right = 1856.0
+offset_bottom = -144.0
+texture_normal = ExtResource("4_ktnio")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="Version" type="Label" parent="Container/SubViewport" unique_id=2013104561]
 modulate = Color(1, 1, 1, 0.270588)
 z_index = 10
@@ -77,14 +87,19 @@ offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("9_wwoys")
 theme_override_font_sizes/font_size = 45
-text = "RhythmPrism v1.0"
+text = "RhythmPrism v1.0.1"
 horizontal_alignment = 1
 
 [node name="Credits_screen" parent="." unique_id=2094439433 instance=ExtResource("8_b57nr")]
-position = Vector2(960, 1824)
+position = Vector2(960, 1416)
+
+[node name="LoreBook" parent="." unique_id=867406128 instance=ExtResource("10_p8sgs")]
+position = Vector2(920, -536)
+scale = Vector2(0.01, 0.01)
 
 [connection signal="pressed" from="Container/SubViewport/Play" to="." method="_when_play_pressed"]
 [connection signal="pressed" from="Container/SubViewport/Credits" to="." method="_when_credits_pressed"]
+[connection signal="pressed" from="Container/SubViewport/LoreButton" to="LoreBook" method="_when_lore_button_pressed"]
 [connection signal="pressed" from="Credits_screen/Close" to="." method="_when_close_pressed"]
 
 [editable path="Credits_screen"]

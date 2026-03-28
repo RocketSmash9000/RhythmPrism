@@ -1,0 +1,15 @@
+Wite the lore of your mod here.
+Note that the lorebook mode needs to be set to 2 in order to use this option.
+Replace the content of this file with the actual lore.
+
+Alternatively, you can use images, placed in the Lorebook directory.
+
+Writing "[br]" without the quotation marks tells RP to create a new page with the contents below it.
+
+[br]
+
+For example, this is page number 2 of the lorebook.
+
+[br]
+
+And this would be page 3.

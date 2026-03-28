@@ -1,8 +1,9 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if GlobalVars.lorebook_mode == 0:
+		$Container/SubViewport/LoreButton.visible = false
 	animate_entry(0.5)
 
 
@@ -39,6 +40,7 @@ func animate_entry(animation_time: float) -> void:
 	animator.tween_property($Container/SubViewport/Shadow2, "position", Vector2(960, 133), animation_time)
 	animator.tween_property($Container/SubViewport/Play, "position", Vector2(880, 864), animation_time)
 	animator.tween_property($Container/SubViewport/Credits, "position", Vector2(40, 40), animation_time)
+	animator.tween_property($Container/SubViewport/LoreButton, "position", Vector2(1744, 40), animation_time)
 	animator.play()
 
 
@@ -51,3 +53,17 @@ func _when_close_pressed() -> void:
 	animator.tween_property($Container, "material:shader_parameter/blur_amount", 0, 0.5)
 	animator.tween_property($Credits_screen, "position", Vector2(960, 1824), 0.5)
 	animator.play()
+
+func animate_blur() -> void:
+	var animator = create_tween()
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_CUBIC)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.tween_property($Container, "material:shader_parameter/blur_amount", 2, 0.5)
+
+func animate_unblur() -> void:
+	var animator = create_tween()
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_CUBIC)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.tween_property($Container, "material:shader_parameter/blur_amount", 0, 0.5)

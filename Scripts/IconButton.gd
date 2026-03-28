@@ -1,6 +1,7 @@
 extends TextureButton
 # Define variables under this comment and above func _ready()
 
+## Offset of the polo icon buttons
 const offset = Vector2(53, 50)
 var buttonPress = false
 var originalPos = position

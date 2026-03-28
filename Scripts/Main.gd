@@ -14,11 +14,11 @@ var first_polo = true # True when there are no polos picked
 # The constants and variables below are used for shading purposes. Do not touch.
 @onready var background = $"Static elements/Background"
 
-# Change this if you want your background to react more aggresively.
-# Change to 0 to disable.
+## Change this if you want your background to react more aggresively.
+## Change to 0 to disable.
 @export var brightness_sensitivity: float = 1
 
-# Higher values will (probably) result in faster speeds when returning to original value
+## Higher values will (probably) result in faster speeds when returning to original value
 @export var smoothing_speed: float = 10
 
 signal newLoop(loop: int)
@@ -135,21 +135,19 @@ func _when_loop_timeout() -> void:
 	elif $"Static elements/ProgressBar".position.x < 1960 and GlobalVars.current_loop == 1:
 		$"Static elements/ProgressBar".position.x = 1512
 
+## Detects if the visibility is actually going to be changed.
+## If it's not, does nothing.
+## If true is passed, makes the progressbar visible.
+## If false is passed, makes the progressbar invisible.
 func toggle_progressbar_visibility(visibility):
-	# Detects if the visibility is actually going to be changed
-	# If it's not, does nothing.
-	# If true is passed, makes the progressbar visible
-	# If false is passed, makes the progressbar invisible
 	if $"Static elements/ProgressBar".visible != visibility:
 		$"Static elements/ProgressBar".visible = visibility
 		$"Static elements/ProgressCover".visible = visibility
 		$"Static elements/ProgressCover2".visible = visibility
 		$"Static elements/BaseProgressBar".visible = visibility
 
+## Gets the amplitude (volume) of the beat, normalized to a range of values.
 func get_music_amplitude() -> float:
-	# All these variables have been assigned a type beforehand.
-	# This way they will not get assigned a different type and break.
-	
 	# The spectrum analyzer effect is at slot 0 on the Master bus.
 	var spectrum_analyzer = AudioServer.get_bus_effect_instance(0, 0)
 	

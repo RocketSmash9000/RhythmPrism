@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bldv1qyirswui"]
+
+[ext_resource type="Texture2D" uid="uid://m167lmpdxhji" path="res://Assets/UI_elements/Main/BottomBar.svg" id="1_k5rbx"]
+[ext_resource type="Script" uid="uid://l44lho0w3ie" path="res://Scenes/LoreBook.gd" id="1_ms477"]
+[ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/Main/CancelMenu.svg" id="2_6fknl"]
+
+[node name="LoreBook" type="Node2D" unique_id=867406128]
+script = ExtResource("1_ms477")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=441473808]
+position = Vector2(0, -6.1035156e-05)
+scale = Vector2(0.7333333, 2.4678664)
+texture = ExtResource("1_k5rbx")
+
+[node name="Close" type="TextureButton" parent="." unique_id=1592180521]
+offset_left = -680.0
+offset_top = -456.0
+offset_right = -587.0
+offset_bottom = -363.0
+texture_normal = ExtResource("2_6fknl")
+
+[connection signal="pressed" from="Close" to="." method="_when_close_pressed"]

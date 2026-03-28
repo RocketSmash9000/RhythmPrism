@@ -13,7 +13,7 @@ This project is more aimed at web hosted versions (like on itch.io) than executa
 
 I (RocketSmash) am not responsible for the misuse of this engine. This includes making copies of the actual game, viruses and/or distasteful joke mods (among others). I only give the means to make modding possible.
 
-Take into account that RhythmPrism is still in its early stages of development. Even though it already works, some things may break or not work. If you have any features you want added, open an issue or DM me through Discord. I'm open to any suggestions. After all, this project is made for the community.
+Take into account that RhythmPrism is still in development. If you have any features you want added, open an issue or DM me through Discord. I'm open to any suggestions. After all, this project is made for the community.
 
 ## Download the project
 You can download RP from the [Releases](https://github.com/RocketSmash9000/RhythmPrism/releases/latest) tab. Decompress and import the project in Godot as seen in [Edit the project](https://github.com/RocketSmash9000/RhythmPrism/?tab=readme-ov-file#edit-the-project). Alternatively, you can clone the entire github repository using the steps below.

@@ -106,9 +106,13 @@ func sound_play(loop: int) -> void:
 	play()
 	already_playing = true
 
-# Gets passed an array of effects and the meta of a polo.
-# Will attach the effects of a polo to the appropriate bus.
-# It's quite the cool function, isn't it?
+## This function has been deprecated, as it's part of the Legacy system.
+## Please use the V2 effects system instead.
+## Gets passed an array of effects and the meta of a polo.
+## Will attach the effects of a polo to the appropriate bus.
+## It's quite the cool function, isn't it? [br]
+## effect = The array of effects to have applied.[br]
+## busID = The ID of the bus that needs the effect applied.
 func parseEffect(effect: Array, busID: int):
 	if GlobalVars.bus_layout == 2:
 		sound_player.debug("Not using Legacy mode. Effect parsing will not take effect.")
@@ -186,7 +190,8 @@ func parseEffect(effect: Array, busID: int):
 			sound_player.debug("Effect does not match any from the supported list. No effect will aply.")
 			return
 
-# Removes the effect associated with a polo when it's banished to the shadow realm
+## Removes the effect associated with a polo when it's banished to the shadow realm [br]
+## busID = The ID of the bus that needs the effect removed
 func removeEffect(busID: int):
 	if GlobalVars.bus_layout == 2:
 		sound_player.debug("V2 bus layout is in use. Returning...")

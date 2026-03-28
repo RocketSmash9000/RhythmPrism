@@ -10,33 +10,44 @@ var carrying_icon: bool = false # Self-explanatory
 var mouse_in_top_part: bool = false
 var mouse_in_bottom_part: bool = false
 
-var picked_polos = [] # Used to keep track of the polos that have been picked
+## Used to keep track of the polos that have been picked
+var picked_polos = []
 
-var reset: bool = false # Self-explanatory
+## Self-explanatory
+var reset: bool = false
 
-var target_polo: int = 0 # This stores the target polo of the Control Menu
+## This stores the target polo of the Control Menu
+var target_polo: int = 0
 
 # Use these to set the time in seconds it takes to complete.
 # And the amount of loops it takes to return to the first loop.
 # The loop indicator does not support more than 2 loops.
 # So you may want to add code to implement it.
-# Since v1.0 there should be no delay when sounds play,
-var loop_seconds = 6 # Amount of seconds a loop takes to complete
-var loop_amount: int = 2 # Amount of loops to play before going back to the first loop
+# Since v1.0 there should be no delay when sounds play.
+## Amount of seconds a loop takes to complete
+var loop_seconds = 6
+## Amount of loops to play before going back to the first loop
+var loop_amount: int = 2
 
 var current_loop: int = 1 # Don't change this variable. It'll mess with the code
 
-# This doesn't mean no volume. It means that the volume is the same as the volume
-# of the audio files that play. A negative number will decrease volume and vice versa.
+## This doesn't mean no volume. It means that the volume is the same as the volume
+## of the audio files that play. A negative number will decrease volume and vice versa.
 var master_volume: float = 0.0
 
-# RP v1.x supports two versions of buses: Legacy and V2.
-# Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).
-# V2 uses 20 (plus Master) buses. Each bus corresponds to one polo and is independent.
-# Legacy will eventually be unsupported in future versions. It's recommended to use V2.
-# If you want to use Legacy, change the number to 1.
-# To give a polo a certain effect open the Audio menu in the bottom bar and edit its
-# corresponding bus effect.
+## Toggles what mode of the lorebook to use: [br] [br]
+## 0 - Lorebook disabled, button will be hidden. [br]
+## 1 - Lore per polo. Has as many pages as polos. [br]
+## 2 - Lorebook mode. The pages contain lore of the mod's universe. Unlimited pages.
+var lorebook_mode: int = 0
+
+## RP v1.x supports two versions of buses: Legacy and V2.
+## Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).
+## V2 uses 20 (plus Master) buses. Each bus corresponds to one polo and is independent. [br]
+## Legacy will eventually be unsupported in future versions. It's recommended to use V2.
+## If you want to use Legacy, change the number to 1. [br]
+## To give a polo a certain effect open the Audio menu in the bottom bar and edit its
+## corresponding bus effect.
 const bus_layout = 2
 
 func _ready() -> void:
@@ -77,5 +88,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("mute"):
 		AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
 
-func set_polo_animation(meta):
+## Returns the asset that corresponds to a specific polo. [br]
+## meta = Number of the polo (1-7 by default)
+func set_polo_animation(meta) -> Resource:
 	return load("res://Assets/Polos/" + str(meta) + "/" + str(meta) + ".tres")
