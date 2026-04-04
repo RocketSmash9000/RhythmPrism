@@ -1,22 +1,114 @@
 [gd_scene format=3 uid="uid://bldv1qyirswui"]
 
-[ext_resource type="Texture2D" uid="uid://m167lmpdxhji" path="res://Assets/UI_elements/Main/BottomBar.svg" id="1_k5rbx"]
-[ext_resource type="Script" uid="uid://l44lho0w3ie" path="res://Scenes/LoreBook.gd" id="1_ms477"]
+[ext_resource type="Script" uid="uid://l44lho0w3ie" path="res://Scripts/LoreBook.gd" id="1_ms477"]
 [ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/Main/CancelMenu.svg" id="2_6fknl"]
+[ext_resource type="Texture2D" uid="uid://cx5o5rsxrmrug" path="res://Assets/Lorebook/PoloBackground.svg" id="2_yym5m"]
+[ext_resource type="Texture2D" uid="uid://bkbcu5xv060eg" path="res://Assets/Lorebook/TopBar.svg" id="3_yinlw"]
+[ext_resource type="Texture2D" uid="uid://c3rn0cnnj6h2v" path="res://Assets/Lorebook/MoveEntry.svg" id="5_yinlw"]
+[ext_resource type="FontFile" uid="uid://d32un4lu5l7wx" path="res://Assets/UI_elements/Other/ProFontWindowsNerdFontMono-Regular.ttf" id="6_o783c"]
+[ext_resource type="SpriteFrames" uid="uid://bny3dhohmyykb" path="res://Assets/Unselected_polos/Unselected.tres" id="7_u8y4a"]
+[ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/Polos/1/PoloIcon.svg" id="8_vap0c"]
 
 [node name="LoreBook" type="Node2D" unique_id=867406128]
 script = ExtResource("1_ms477")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=441473808]
-position = Vector2(0, -6.1035156e-05)
-scale = Vector2(0.7333333, 2.4678664)
-texture = ExtResource("1_k5rbx")
+[node name="LoreBackground" type="Sprite2D" parent="." unique_id=499570024]
+self_modulate = Color(0.3440533, 0.56405, 0.65621734, 1)
+position = Vector2(-31.999987, 36.00003)
+scale = Vector2(0.11116435, 0.13922156)
+texture = ExtResource("2_yym5m")
+
+[node name="LoreBackground2" type="Sprite2D" parent="." unique_id=421723335]
+self_modulate = Color(0.3440533, 0.56405, 0.65621734, 1)
+position = Vector2(343.99997, 35.999977)
+scale = Vector2(0.11116435, 0.13922155)
+texture = ExtResource("2_yym5m")
+
+[node name="LoreBackground3" type="Sprite2D" parent="." unique_id=179222817]
+self_modulate = Color(0.3440533, 0.56405, 0.65621734, 1)
+position = Vector2(472, 36.000008)
+scale = Vector2(0.11116435, 0.13922155)
+texture = ExtResource("2_yym5m")
+
+[node name="PoloBackground" type="Sprite2D" parent="." unique_id=1592892593]
+position = Vector2(-488, 35.999943)
+scale = Vector2(0.1073311, 0.13922156)
+texture = ExtResource("2_yym5m")
+
+[node name="TopBar" type="Sprite2D" parent="." unique_id=1350348974]
+position = Vector2(-4, -408.00003)
+scale = Vector2(0.22295699, 0.25307554)
+texture = ExtResource("3_yinlw")
 
 [node name="Close" type="TextureButton" parent="." unique_id=1592180521]
 offset_left = -680.0
 offset_top = -456.0
-offset_right = -587.0
-offset_bottom = -363.0
+offset_right = -584.0
+offset_bottom = -360.0
 texture_normal = ExtResource("2_6fknl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MoveRight" type="TextureButton" parent="." unique_id=1478367889]
+offset_left = 568.0
+offset_top = -456.0
+offset_right = 664.0
+offset_bottom = -360.0
+texture_normal = ExtResource("5_yinlw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MoveLeft" type="TextureButton" parent="." unique_id=1934602219]
+offset_left = 408.0
+offset_top = -456.0
+offset_right = 504.0
+offset_bottom = -360.0
+texture_normal = ExtResource("5_yinlw")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="PoloName" type="Label" parent="." unique_id=305564461]
+offset_left = -416.0
+offset_top = -456.0
+offset_right = 336.0
+offset_bottom = -360.0
+theme_override_fonts/font = ExtResource("6_o783c")
+theme_override_font_sizes/font_size = 96
+text = "Polo Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="PoloLore" type="RichTextLabel" parent="." unique_id=1007045465]
+offset_left = -200.0
+offset_top = -280.0
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_fonts/normal_font = ExtResource("6_o783c")
+bbcode_enabled = true
+text = "Here goes the lore of polos.
+
+This is just dummy text. It will be replaced by the actual lore when the game runs. Same goes for the Polo name. 
+
+Replacing this text will do nothing.
+
+This text supports BBCode. For more info, run the project and click [url=https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html]here[/url]."
+fit_content = true
+scroll_active = false
+threaded = true
+
+[node name="PoloSprite" type="AnimatedSprite2D" parent="." unique_id=1810758094]
+position = Vector2(-496, 32)
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("7_u8y4a")
+
+[node name="PoloIcon" type="Sprite2D" parent="." unique_id=1523663692]
+position = Vector2(-503.99997, -407.99997)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("8_vap0c")
 
 [connection signal="pressed" from="Close" to="." method="_when_close_pressed"]
+[connection signal="pressed" from="MoveRight" to="." method="_when_move_right_pressed"]
+[connection signal="pressed" from="MoveLeft" to="." method="_when_move_left_pressed"]
+[connection signal="meta_clicked" from="PoloLore" to="." method="_when_rtl_meta_clicked"]

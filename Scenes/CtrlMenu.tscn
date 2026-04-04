@@ -8,7 +8,6 @@
 metadata/target_ID = 0
 
 [node name="MenuSprite" type="Sprite2D" parent="." unique_id=859171589]
-scale = Vector2(2, 2)
 texture = ExtResource("1_b4o0o")
 
 [node name="MutePolo" type="TextureButton" parent="." unique_id=545018525]

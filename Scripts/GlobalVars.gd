@@ -36,10 +36,10 @@ var current_loop: int = 1 # Don't change this variable. It'll mess with the code
 var master_volume: float = 0.0
 
 ## Toggles what mode of the lorebook to use: [br] [br]
-## 0 - Lorebook disabled, button will be hidden. [br]
-## 1 - Lore per polo. Has as many pages as polos. [br]
-## 2 - Lorebook mode. The pages contain lore of the mod's universe. Unlimited pages.
-var lorebook_mode: int = 0
+## [code]0[/code] - Lorebook disabled, button will be hidden. [br]
+## [code]1[/code] - Lore per polo. Has as many pages as polos. [br]
+## [code]2[/code] - Lorebook mode. The pages contain lore of the mod's universe. Unlimited pages.
+var lorebook_mode: int = 1
 
 ## RP v1.x supports two versions of buses: Legacy and V2.
 ## Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).
@@ -89,6 +89,25 @@ func _process(_delta: float) -> void:
 		AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
 
 ## Returns the asset that corresponds to a specific polo. [br]
-## meta = Number of the polo (1-7 by default)
+## [code]meta[/code] = Number of the polo (1-7 by default)
 func set_polo_animation(meta) -> Resource:
 	return load("res://Assets/Polos/" + str(meta) + "/" + str(meta) + ".tres")
+
+## Loads a JSON file located at [code]path[/code] as a dictionary
+func load_json(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		push_error("File not found: " + path)
+		return {}
+
+	var file = FileAccess.open(path, FileAccess.READ)
+	var text = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var result = json.parse(text)
+
+	if result != OK:
+		push_error("JSON Parse Error: " + json.get_error_message())
+		return {}
+
+	return json.get_data()

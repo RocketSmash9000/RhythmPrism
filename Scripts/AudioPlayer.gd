@@ -3,10 +3,10 @@ extends AudioStreamPlayer
 var meta
 var sound_player
 
-# This dictionary right here contains a list of every single audio file used for polos.
-# If (for example) polo 3 had only one loop instead of 2, make the two preload functions
-# at "3: [...]" load the exact same file.
-# If the mod had more loops, add more preload functions to the array.
+## This dictionary right here contains a list of every single audio file used for polos.
+## If (for example) polo 3 had only one loop instead of 2, make the two preload functions
+## at [code]3: [...][/code] load the exact same file. [br]
+## If the mod had more loops, add more preload functions to the array.
 const SOUNDS_DICT: Dictionary[int, Array] = {
 	# Godot it'd be nice if I could make the values Array[Resource] :)
 	1: [preload("res://Sound/V5 FitnessGram 1.mp3"), preload("res://Sound/V5 FitnessGram 2.mp3")],
@@ -31,11 +31,11 @@ const SOUNDS_DICT: Dictionary[int, Array] = {
 	20: [preload("res://Sound/V5 FitnessGram 1.mp3"), preload("res://Sound/V5 FitnessGram 2.mp3")]
 }
 
-# This constant is part of Legacy effect processing.
-# Please use V2 instead.
-# For information on how to use this constant, please read 'EffectParser.md'.
-# Leave empty for no effects.
-# Only one effect is allowed per bus.
+## This constant is part of Legacy effect processing.
+## Please use V2 instead.
+## For information on how to use this constant, please read [code]EffectParser.md[/code].
+## Leave empty for no effects.
+## Only one effect is allowed per bus.
 const ASSOCIATED_EFFECTS: Dictionary[int, Array] = {
 	1: [], # You can replace the brackets with '["Reverb", 0.8, 0.5, 1, 0, 1, 0.5]' to add the reverb effect
 	2: [],
@@ -77,6 +77,8 @@ func _when_parent_node_new_loop(loop: int) -> void:
 	if !$"../../../Loop".time_left <= (GlobalVars.loop_seconds-0.075) or $"../../../Loop".time_left == 0:
 		sound_play(loop)
 
+## Plays the specific sound of a polo. Needs to be passed the current loop. [br][br]
+## [code]loop[/code] = The loop of the polo to play
 func sound_play(loop: int) -> void:
 	meta = get_parent().type # Save the ID of the sound to play stored in the polo
 	sound_player.debug("Meta = " + str(meta))
@@ -110,9 +112,9 @@ func sound_play(loop: int) -> void:
 ## Please use the V2 effects system instead.
 ## Gets passed an array of effects and the meta of a polo.
 ## Will attach the effects of a polo to the appropriate bus.
-## It's quite the cool function, isn't it? [br]
-## effect = The array of effects to have applied.[br]
-## busID = The ID of the bus that needs the effect applied.
+## It's quite the cool function, isn't it? [br][br]
+## [code]effect[/code] = The array of effects to have applied.[br][br]
+## [code]busID[/code] = The ID of the bus that needs the effect applied.
 func parseEffect(effect: Array, busID: int):
 	if GlobalVars.bus_layout == 2:
 		sound_player.debug("Not using Legacy mode. Effect parsing will not take effect.")
@@ -191,7 +193,7 @@ func parseEffect(effect: Array, busID: int):
 			return
 
 ## Removes the effect associated with a polo when it's banished to the shadow realm [br]
-## busID = The ID of the bus that needs the effect removed
+## [code]busID[/code] = The ID of the bus that needs the effect removed
 func removeEffect(busID: int):
 	if GlobalVars.bus_layout == 2:
 		sound_player.debug("V2 bus layout is in use. Returning...")

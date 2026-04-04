@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxkl8n4dy03wb"
-path="res://.godot/imported/PoloIcon.svg-5a043e8ab34230b3527f558ca100ea5c.ctex"
+uid="uid://bkbcu5xv060eg"
+path="res://.godot/imported/TopBar.svg-2619dcb9f18821c97b8dfde0e63fd121.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Polos/15/PoloIcon.svg"
-dest_files=["res://.godot/imported/PoloIcon.svg-5a043e8ab34230b3527f558ca100ea5c.ctex"]
+source_file="res://Assets/Lorebook/TopBar.svg"
+dest_files=["res://.godot/imported/TopBar.svg-2619dcb9f18821c97b8dfde0e63fd121.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=5.0
+svg/scale=4.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

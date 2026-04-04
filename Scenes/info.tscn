@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7icuvns0niwq" path="res://Assets/UI_elements/Info/play_pressed.svg" id="5_ow5vt"]
 [ext_resource type="Texture2D" uid="uid://c1gu1d6d0e30h" path="res://Assets/UI_elements/Info/play_hover.svg" id="6_3f5wr"]
 [ext_resource type="PackedScene" uid="uid://biyh28ioiicg1" path="res://Scenes/Credits.tscn" id="8_b57nr"]
+[ext_resource type="Texture2D" uid="uid://coms4eo8chew3" path="res://Assets/Lorebook/LoreBookButton.svg" id="9_htdjn"]
 [ext_resource type="FontFile" uid="uid://d32un4lu5l7wx" path="res://Assets/UI_elements/Other/ProFontWindowsNerdFontMono-Regular.ttf" id="9_wwoys"]
 [ext_resource type="PackedScene" uid="uid://bldv1qyirswui" path="res://Scenes/LoreBook.tscn" id="10_p8sgs"]
 
@@ -73,7 +74,7 @@ offset_left = 1744.0
 offset_top = -256.0
 offset_right = 1856.0
 offset_bottom = -144.0
-texture_normal = ExtResource("4_ktnio")
+texture_normal = ExtResource("9_htdjn")
 ignore_texture_size = true
 stretch_mode = 5
 

@@ -1,22 +1,128 @@
 {
-	"1": "This is the lorebook for all polos. If the lorebook mode isn't set to 1, this will not work.",
-	"2": "",
-	"3": "Lore for polo 3",
-	"4": "",
-	"5": "",
-	"6": "",
-	"7": "",
-	"8": "",
-	"9": "",
-	"10": "",
-	"11": "",
-	"12": "",
-	"13": "",
-	"14": "",
-	"15": "",
-	"16": "",
-	"17": "",
-	"18": "",
-	"19": "",
-	"20": ""
+	"polos": [
+		{
+			"id": 1,
+			"name": "Polo 1",
+			"lore": "This is the lorebook for all polos. If the lorebook mode isn't set to 1, this will not work.
+
+You can also insert newlines and [code]code blocks[/code] like so thanks to [b]BBCode[/b].
+			Remember to remove tabs or text will look like this.",
+			"animation": "res://Assets/Unselected_polos/Unselected.tres",
+			"icon": "res://Assets/Polos/1/PoloIcon.svg"
+		}, {
+			"id": 2,
+			"name": "Polo 2",
+			"lore": "",
+			"animation": "Replace with the path to the polo's animation",
+			"icon": "Replace with the path to the polo's icon"
+		}, {
+			"id": 3,
+			"name": "Polo 3's name",
+			"lore": "Lore for polo 3 here",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 4,
+			"name": "Polo 4",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 5,
+			"name": "Polo 5",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 6,
+			"name": "Polo 6",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 7,
+			"name": "Polo 7",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 8,
+			"name": "Polo 8",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 9,
+			"name": "Polo 9",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		},  {
+			"id": 10,
+			"name": "Polo 10",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 11,
+			"name": "Polo 11",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 12,
+			"name": "Polo 12",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 13,
+			"name": "Polo 13",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 14,
+			"name": "Polo 14",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 15,
+			"name": "Polo 15",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 16,
+			"name": "Polo 16",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 17,
+			"name": "Polo 17",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 18,
+			"name": "Polo 18",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 19,
+			"name": "Polo 19",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}, {
+			"id": 20,
+			"name": "Polo 20",
+			"lore": "",
+			"animation": "",
+			"icon": ""
+		}
+	]
 }

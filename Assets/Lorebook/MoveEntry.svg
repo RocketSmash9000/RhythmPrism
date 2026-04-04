@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="93.151009"
+   height="93.15271"
+   viewBox="0 0 93.151009 93.15271"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="MenuIcon.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="All_elements.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="1538.6644"
+     inkscape:cy="-1053.5891"
+     inkscape:window-width="1920"
+     inkscape:window-height="1171"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(117.70731,-163.83444)">
+    <g
+       id="g23"
+       transform="translate(3.6676218,123.83486)"
+       inkscape:export-filename="..\..\Lorebook\MoveEntry.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <ellipse
+         style="fill:#4d4d4d;fill-opacity:1;stroke:#202020;stroke-width:0.0943996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0"
+         id="ellipse2"
+         ry="46.52916"
+         rx="46.528301"
+         cy="86.575935"
+         cx="-74.799431"
+         inkscape:export-filename="LoreBook\MoveEntry.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="font-weight:bold;font-size:80px;line-height:1.5;font-family:'UD Digi Kyokasho NP-B';-inkscape-font-specification:'UD Digi Kyokasho NP-B, Bold';word-spacing:0px;white-space:pre;fill:#ffffff;fill-rule:evenodd;stroke-width:27;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0"
+         d="m -127.58984,204.95703 -41.83594,-20.15625 q -2.1875,-1.05469 -2.1875,-3.125 0,-1.21094 0.74219,-2.38281 1.05468,-1.60156 2.8125,-1.60156 1.01562,0 2.30468,0.625 l 46.95313,23.04687 q 2.30469,1.13281 2.30469,3.63281 0,2.42188 -2.30469,3.55469 l -46.95313,23.04688 q -1.21093,0.58593 -2.26562,0.58593 -1.79688,0 -2.89063,-1.64062 -0.74218,-1.17188 -0.74218,-2.26563 0,-2.10937 2.22656,-3.16406 z"
+         id="text23"
+         transform="translate(73.870982,-118.36156)"
+         aria-label="&gt;" />
+    </g>
+  </g>
+</svg>
