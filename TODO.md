@@ -1,6 +1,7 @@
 - [Won't be fixed] Loop overhaul (cleanup legacy code, make more optimised).
 	- THE ISSUE WAS THE FUCKING TIMER. Now the first time each loop is played (and loaded into memory) has an imperceptible lag spike (or at least that's how it should be).
 - Lore book within game.
+	- Cleanup lorebook code.
 - Create script/executable for easy mod making.
 	- Will need to be able to select all sprites for every polo.
 	- Let user make animations from interface.

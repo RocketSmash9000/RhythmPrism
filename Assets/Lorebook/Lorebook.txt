@@ -1,15 +1,23 @@
+[page]
+[title]Title Here[/title]
 Wite the lore of your mod here.
 Note that the lorebook mode needs to be set to 2 in order to use this option.
 Replace the content of this file with the actual lore.
 
 Alternatively, you can use images, placed in the Lorebook directory.
 
-Writing "[break]" without the quotation marks tells RP to create a new page with the contents below it.
+To separate pages, use page separators like the ones used here. "page" indicates the start and "/page" indicates the end of a page. Remember to place them between [] for it to work.
 
-[break]
+[/page]
+[page]
 
 For example, this is page number 2 of the lorebook.
 
-[break]
+[/page]
 
-And this would be page 3.
+[page]
+[title]Other Title[/title]
+
+And this would be page 3, with a different title.
+
+[/page]
