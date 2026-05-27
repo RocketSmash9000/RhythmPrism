@@ -1,25 +1,25 @@
 extends Node2D
 # Define variables under this comment and above func _ready()
-var logger
+var logger: LogStream
 
-var debug_text = ""
+var debug_text := ""
 
-var show_menu = false # Self-explanatory
-var hide_menu = false
+var show_menu := false # Self-explanatory
+var hide_menu := false
 
-var once = true # used to trigger stuff only once. Yk, code executing every frame.
+var once := true # used to trigger stuff only once. Yk, code executing every frame.
 
-var first_polo = true # True when there are no polos picked
+var first_polo := true # True when there are no polos picked
 
 # The constants and variables below are used for shading purposes. Do not touch.
-@onready var background = $"Static elements/Background"
+@onready var background := $"Static elements/Background"
 
 ## Change this if you want your background to react more aggresively.
 ## Change to 0 to disable.
-@export var brightness_sensitivity: float = 1
+@export var brightness_sensitivity := 1.0
 
 ## Higher values will (probably) result in faster speeds when returning to original value
-@export var smoothing_speed: float = 10
+@export var smoothing_speed := 10.0
 
 signal newLoop(loop: int)
 signal resetPolos()
@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	if show_menu: # Shows the menu when the menu button is pressed
 		Log.debug("Showing menu...")
 		toggle_progressbar_visibility(false)
-		var animator = create_tween()
+		var animator := create_tween()
 		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator.set_trans(Tween.TRANS_SINE)
 		animator.set_ease(Tween.EASE_IN_OUT)
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 	if hide_menu: # Hides the menu when the close menu button is pressed
 		Log.debug("Hiding menu...")
 		toggle_progressbar_visibility(true)
-		var animator2 = create_tween()
+		var animator2 := create_tween()
 		animator2.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator2.set_trans(Tween.TRANS_SINE)
 		animator2.set_ease(Tween.EASE_IN_OUT)
@@ -149,7 +149,7 @@ func toggle_progressbar_visibility(visibility):
 ## Gets the amplitude (volume) of the beat, normalized to a range of values.
 func get_music_amplitude() -> float:
 	# The spectrum analyzer effect is at slot 0 on the Master bus.
-	var spectrum_analyzer = AudioServer.get_bus_effect_instance(0, 0)
+	var spectrum_analyzer := AudioServer.get_bus_effect_instance(0, 0)
 	
 	if spectrum_analyzer:
 		# Get the magnitude (in dB) for a frequency range where the beat is prominent.

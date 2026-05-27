@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
-var meta
-var sound_player
+var meta: int
+var sound_player: LogStream
 
 ## This dictionary right here contains a list of every single audio file used for polos.
 ## If (for example) polo 3 had only one loop instead of 2, make the two preload functions
@@ -59,7 +59,7 @@ const ASSOCIATED_EFFECTS: Dictionary[int, Array] = {
 	20: []
 }
 
-var already_playing = false
+var already_playing := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sound_player = LogStream.new("Polo/SoundPlayer" + str(get_meta("AudioID")))
@@ -126,7 +126,7 @@ func parseEffect(effect: Array, busID: int):
 	var effect_name: String = effect[0]
 	match effect_name.to_lower():
 		"reverb":
-			var reverb: AudioEffect = AudioEffectReverb.new()
+			var reverb := AudioEffectReverb.new()
 			if effect.size() == 7:
 				reverb.room_size = effect[1]
 				reverb.damping = effect[2]
@@ -138,7 +138,7 @@ func parseEffect(effect: Array, busID: int):
 					AudioServer.add_bus_effect(busID, reverb)
 					sound_player.info("Applied reverb effect to polo number " + str(busID))
 		"compress":
-			var compression: AudioEffect = AudioEffectCompressor.new()
+			var compression := AudioEffectCompressor.new()
 			if effect.size() == 7:
 				compression.threshold = effect[1]
 				compression.ratio = effect[2]
@@ -150,7 +150,7 @@ func parseEffect(effect: Array, busID: int):
 				AudioServer.add_bus_effect(busID, compression)
 				sound_player.info("Applied compression effect to polo number " + str(busID))
 		"chorus":
-			var chorus: AudioEffect = AudioEffectChorus.new()
+			var chorus := AudioEffectChorus.new()
 			if effect.size() == 4:
 				chorus.voice_count = effect[1]
 				chorus.dry = effect[2]
@@ -159,7 +159,7 @@ func parseEffect(effect: Array, busID: int):
 				AudioServer.add_bus_effect(busID, chorus)
 				sound_player.info("Applied chorus effect to polo number " + str(busID))
 		"distort":
-			var distortion: AudioEffect = AudioEffectDistortion.new()
+			var distortion := AudioEffectDistortion.new()
 			if effect.size() == 6:
 				var distortion_name: String = effect[1]
 				match distortion_name.to_lower():

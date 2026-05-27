@@ -6,7 +6,7 @@
 			"lore": "This is the lorebook for all polos. If the lorebook mode isn't set to 1, this will not work.
 
 You can also insert newlines and [code]code blocks[/code] like so thanks to [b]BBCode[/b].
-			Remember to remove tabs or text will look like this.",
+			Remember to remove tabs or text will look weirdly aligned.",
 			"animation": "res://Assets/Unselected_polos/Unselected.tres",
 			"icon": "res://Assets/Polos/1/PoloIcon.svg"
 		}, {
@@ -77,8 +77,8 @@ You can also insert newlines and [code]code blocks[/code] like so thanks to [b]B
 			"icon": ""
 		}, {
 			"id": 13,
-			"name": "Polo 13",
-			"lore": "",
+			"name": "Greg",
+			"lore": "Very interesting lore for Greg, polo number 13",
 			"animation": "",
 			"icon": ""
 		}, {

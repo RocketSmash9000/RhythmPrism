@@ -3,21 +3,21 @@ extends Node
 # Define variables here if you need to access them from multiple scripts
 # Define variables under this comment and above func _ready()
 
-var mouse_up: bool = false # Controls when the mouse has been unclicked
-var icon_meta: int = 0 # Metadata of the carried icon, aka its identifier
-var carrying_icon: bool = false # Self-explanatory
+var mouse_up := false # Controls when the mouse has been unclicked
+var icon_meta := 0 # Metadata of the carried icon, aka its identifier
+var carrying_icon := false # Self-explanatory
 
-var mouse_in_top_part: bool = false
-var mouse_in_bottom_part: bool = false
+var mouse_in_top_part := false
+var mouse_in_bottom_part := false
 
 ## Used to keep track of the polos that have been picked
-var picked_polos = []
+var picked_polos := []
 
 ## Self-explanatory
-var reset: bool = false
+var reset := false
 
 ## This stores the target polo of the Control Menu
-var target_polo: int = 0
+var target_polo := 0
 
 # Use these to set the time in seconds it takes to complete.
 # And the amount of loops it takes to return to the first loop.
@@ -25,21 +25,21 @@ var target_polo: int = 0
 # So you may want to add code to implement it.
 # Since v1.0 there should be no delay when sounds play.
 ## Amount of seconds a loop takes to complete
-var loop_seconds = 6
+var loop_seconds := 6
 ## Amount of loops to play before going back to the first loop
-var loop_amount: int = 2
+var loop_amount := 2
 
-var current_loop: int = 1 # Don't change this variable. It'll mess with the code
+var current_loop := 1 # Don't change this variable. It'll mess with the code
 
 ## This doesn't mean no volume. It means that the volume is the same as the volume
 ## of the audio files that play. A negative number will decrease volume and vice versa.
-var master_volume: float = 0.0
+var master_volume := 0.0
 
 ## Toggles what mode of the lorebook to use: [br] [br]
 ## [code]0[/code] - Lorebook disabled, button will be hidden. [br]
 ## [code]1[/code] - Lore per polo. Has as many pages as polos. [br]
 ## [code]2[/code] - Lorebook mode. The pages contain lore of the mod's universe. Unlimited pages.
-var lorebook_mode: int = 2
+var lorebook_mode := 2
 
 ## RP v1.x supports two versions of buses: Legacy and V2.
 ## Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).
@@ -48,9 +48,14 @@ var lorebook_mode: int = 2
 ## If you want to use Legacy, change the number to 1. [br]
 ## To give a polo a certain effect open the Audio menu in the bottom bar and edit its
 ## corresponding bus effect.
-const bus_layout = 2
+const bus_layout := 2
 
 func _ready() -> void:
+	# Very needed line of code
+	if !FileAccess.file_exists("res://Assets/UI_elements/Other/tamato.png"):
+		printerr("Required files are missing. The project will crash now.")
+		get_tree().quit(1)
+	
 	# Switches bus layout to Legacy if project isn't set to use V2.
 	if bus_layout != 2:
 		AudioServer.set_bus_layout(preload("res://default_bus_layout.tres"))
@@ -99,12 +104,12 @@ func load_json(path: String) -> Dictionary:
 		push_error("File not found: " + path)
 		return {}
 
-	var file = FileAccess.open(path, FileAccess.READ)
-	var text = file.get_as_text()
+	var file := FileAccess.open(path, FileAccess.READ)
+	var text := file.get_as_text()
 	file.close()
 
-	var json = JSON.new()
-	var result = json.parse(text)
+	var json := JSON.new()
+	var result := json.parse(text)
 
 	if result != OK:
 		push_error("JSON Parse Error: " + json.get_error_message())

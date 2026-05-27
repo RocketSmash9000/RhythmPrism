@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 
 func _when_credits_pressed() -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_CUBIC)
 	animator.set_ease(Tween.EASE_OUT)
@@ -31,7 +31,7 @@ func _when_play_pressed() -> void:
 
 
 func animate_entry(animation_time: float) -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_CUBIC)
 	animator.set_ease(Tween.EASE_OUT)
@@ -45,7 +45,7 @@ func animate_entry(animation_time: float) -> void:
 
 
 func _when_close_pressed() -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_CUBIC)
 	animator.set_ease(Tween.EASE_OUT)
@@ -55,14 +55,14 @@ func _when_close_pressed() -> void:
 	animator.play()
 
 func animate_blur() -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_CUBIC)
 	animator.set_ease(Tween.EASE_OUT)
 	animator.tween_property($Container, "material:shader_parameter/blur_amount", 2, 0.5)
 
 func animate_unblur() -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_CUBIC)
 	animator.set_ease(Tween.EASE_OUT)

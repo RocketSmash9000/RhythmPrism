@@ -11,7 +11,9 @@ To separate pages, use page separators like the ones used here. "page" indicates
 [/page]
 [page]
 
-For example, this is page number 2 of the lorebook.
+For example, this is page number 2 of the [b]lorebook[/b].
+
+BBCode formatting works in the lorebook as well.
 
 [/page]
 

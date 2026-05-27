@@ -2,12 +2,12 @@ extends TextureButton
 # Define variables under this comment and above func _ready()
 
 ## Offset of the polo icon buttons
-const offset = Vector2(53, 50)
-var buttonPress = false
-var originalPos = position
-var used = false
+const offset := Vector2(53, 50)
+var buttonPress := false
+var originalPos := position
+var used := false
 
-var iconstream
+var iconstream: LogStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,7 +44,7 @@ func _when_self_button_up() -> void:
 		GlobalVars.icon_meta = get_meta("iconID")
 		
 		# These 'animator' calls will return the icon to its original place with a nice animation
-		var animator = create_tween()
+		var animator := create_tween()
 		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator.set_ease(Tween.EASE_OUT)
 		animator.tween_property(self, "position", originalPos, 0.1)

@@ -1,13 +1,13 @@
 extends Area2D
 # Define variables under this comment and above func _ready()
 
-var mouse_in: bool = false
-var picked: bool = false
-var type: int = 0
+var mouse_in := false
+var picked := false
+var type := 0
 
-const default_anim: Resource = preload("res://Assets/Unselected_polos/Unselected.tres")
+const default_anim := preload("res://Assets/Unselected_polos/Unselected.tres")
 
-var polostream
+var polostream: LogStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _ready() -> void:
 	# Anyway, all polos do the appearing thing when first booting the project
 	$Sprite2D.position.y = 504
 	await get_tree().create_timer(sqrt(get_meta("PoloID"))/10).timeout
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_EXPO)
 	animator.set_ease(Tween.EASE_OUT)
@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 			$AudioStreamPlayer.already_playing = false
 	
 	if GlobalVars.mouse_in_bottom_part:
-		var animator = create_tween() # This will move the Control Menu to whatever polo the mouse is on
+		var animator := create_tween() # This will move the Control Menu to whatever polo the mouse is on
 		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator.set_trans(Tween.TRANS_EXPO)
 		animator.set_ease(Tween.EASE_OUT)
@@ -71,7 +71,7 @@ func _process(_delta: float) -> void:
 
 func _when_self_mouse_entered() -> void:
 	mouse_in = true
-	var animator = create_tween() # This will move the Control Menu to whatever polo the mouse is on
+	var animator := create_tween() # This will move the Control Menu to whatever polo the mouse is on
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_EXPO)
 	animator.set_ease(Tween.EASE_OUT)
@@ -110,7 +110,7 @@ func vanquish():
 	$AudioStreamPlayer.stop()
 	$AudioStreamPlayer.removeEffect(get_meta("PoloID"))
 	# Returns to its default animation when unpicked
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_EXPO)
 	animator.set_ease(Tween.EASE_OUT)

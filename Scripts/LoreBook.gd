@@ -1,33 +1,47 @@
 extends Node2D
 
-const HIDDEN_POS = Vector2(960, -512)
-const SHOW_POS = Vector2(960, 544)
-var is_hidden: bool = true
-var polo_id: int = 1
+# Caches the nodes so that they're faster to access
+@onready var polo_name: Label = $PoloName
+@onready var polo_lore: RichTextLabel = $PoloLore
+@onready var polo_sprite: AnimatedSprite2D = $PoloSprite
+@onready var polo_icon: Sprite2D = $PoloIcon
+
+# Same thing here
+const DEFAULT_SPRITE := preload("res://Assets/Unselected_polos/Unselected.tres")
+const DEFAULT_ICON := preload("res://Assets/Polos/1/PoloIcon.svg")
+# Somehow I just discovered you can do := to assign a variable
+# the type of the value you assign. How didn't I know sooner?
+const HIDDEN_POS := Vector2(960, -512)
+const SHOW_POS := Vector2(960, 544)
+
+var is_hidden := true
+var polo_id := 1
 var polos: Array
-var lorebook
-var lorebook_page
-var page_index: int = 0
+var lorebook: LogStream
+var lorebook_page: Array[String]
+var lore_pages: Array = []
+var page_index := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lorebook = LogStream.new("Lorebook")
 	
-	if GlobalVars.lorebook_mode == 1:
-		load_polo_lore()
-		update_lorebook()
-	elif GlobalVars.lorebook_mode == 2:
-		lorebook_page = load_lorebook_page(page_index)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	# Load all the lore when the scene loads
+	var lore_file = FileAccess.open("res://Assets/Lorebook/Lorebook.txt", FileAccess.READ)
+	lore_pages = Array(lore_file.get_as_text().split("[page]", false))
+	
+	# Load the initial lorebook page
+	match GlobalVars.lorebook_mode:
+		1:
+			load_polo_lore()
+			update_lorebook()
+		2:
+			update_lorebook()
 
 ## Animates the lorebook appearing on the main menu screen
 func show_lore() -> void:
 	position = SHOW_POS
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_SINE)
 	animator.set_ease(Tween.EASE_OUT)
@@ -38,7 +52,7 @@ func show_lore() -> void:
 
 ## Animates the lorebook disappearing on the main menu screen
 func hide_lore() -> void:
-	var animator = create_tween()
+	var animator := create_tween()
 	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	animator.set_trans(Tween.TRANS_SINE)
 	animator.set_ease(Tween.EASE_OUT)
@@ -51,42 +65,39 @@ func hide_lore() -> void:
 ## Loads the lore of polos when the lorebook mode is set to 1.
 func load_polo_lore() -> void:
 	polos = get_polos()
-	var i = 0
 	# Grabs the path for the animation and icon in the lorebook file
 	# and converts it to a loadable resource.
-	while i < polos.size():
-		var animation: String = str(polos[i].animation)
-		var icon: String = str(polos[i].icon)
+	for polo in polos:
+		var animation := str(polo.animation)
+		var icon := str(polo.icon)
 		
 		if animation.begins_with("res://") and icon.begins_with("res://"):
-			polos[i].animation = load(animation)
-			polos[i].icon = load(icon)
+			polo.animation = load(animation)
+			polo.icon = load(icon)
 		else:
-			polos[i].animation = null
-			polos[i].icon = null
-			lorebook.debug("The path for either the animation or icon for polo " + str(i + 1) + " is incorrect. Skipped.")
-		i += 1
+			polo.animation = null
+			polo.icon = null
+			lorebook.debug("The path for either the animation or icon for polo " + str(polo) + " is incorrect. Skipped.")
 
 ## Loads the specified page of the lorebook file. Performs a few string operations, please don't alter. [br]
 ## Returns an array of strings, containing the title and content. The title may be empty.
 func load_lorebook_page(page: int) -> Array[String]:
-	var lore_file = FileAccess.open("res://Assets/Lorebook/Lorebook.txt", FileAccess.READ)
-	var lore = lore_file.get_as_text().split("[page]", false, 0)
-	lore = Array(lore)
-	lore[page] = lore[page].replace("[/page]", "\n")
-	lore[page] = lore[page].strip_edges(true, true)
-	var title = lore[page].get_slice("[title]", 1).get_slice("[/title]", 0)
-	lore[page] = lore[page].replace("[title]" + title + "[/title]\n", "")
+	var content = lore_pages[page].strip_edges()
 	
-	var result: Array[String] = [title, lore[page]]
-	
-	return result
+	content = content.rstrip("\n[/page]")
 
-func get_lorebook_pages() -> int:
-	var lore_file = FileAccess.open("res://Assets/Lorebook/Lorebook.txt", FileAccess.READ)
-	var lore = lore_file.get_as_text().split("[page]", false, 0)
-	return lore.size()
+	var title := ""
 
+	var regex := RegEx.new()
+	regex.compile("\\[title\\](.*?)\\[/title\\]")
+
+	var result := regex.search(content)
+
+	if result:
+		title = result.get_string(1)
+		content = regex.sub(content, "", true).strip_edges()
+
+	return [title, content]
 
 func _when_lore_button_pressed() -> void:
 	if is_hidden:
@@ -103,37 +114,40 @@ func _when_rtl_meta_clicked(meta: Variant) -> void:
 
 ## Fetches all the polos of a dictionary
 func get_polos() -> Array:
-	var data = GlobalVars.load_json("res://Assets/Lorebook/LorePolos.json")
+	var data := GlobalVars.load_json("res://Assets/Lorebook/LorePolos.json")
 	return data.get("polos", [])
 
 ## Reassigns the title, lore, animation and icon using [code]polo_id[/code].
 func update_lorebook() -> void:
 	if GlobalVars.lorebook_mode == 1:
-		$PoloName.text = polos[polo_id - 1].name
-		$PoloLore.text = polos[polo_id - 1].lore
+		var polo = polos[polo_id - 1]
+		polo_name.text = polo.name
+		polo_lore.text = polo.lore
 		# If the polo's animation doesn't exist, load the default
-		if polos[polo_id - 1].animation != null:
-			$PoloSprite.sprite_frames = polos[polo_id - 1].animation
+		if polo.animation != null:
+			polo_sprite.sprite_frames = polo.animation
 		else:
-			$PoloSprite.sprite_frames = preload("res://Assets/Unselected_polos/Unselected.tres")
+			polo_sprite.sprite_frames = DEFAULT_SPRITE
 		# If the polo's icon doesn't exist, load the default
-		if polos[polo_id - 1].icon != null:
-			$PoloIcon.texture = polos[polo_id - 1].icon
+		if polo.icon != null:
+			polo_icon.texture = polo.icon
 		else:
-			$PoloIcon.texture = preload("res://Assets/Polos/1/PoloIcon.svg")
+			polo_icon.texture = DEFAULT_ICON
 	elif GlobalVars.lorebook_mode == 2:
-		$PoloName.text = lorebook_page[page_index]
-		$PoloLore.text = lorebook_page[page_index+1]
+		lorebook_page = load_lorebook_page(page_index)
+		polo_name.text = lorebook_page[0]
+		polo_lore.text = lorebook_page[1]
 
-# Update lorebook when going right
+## Updates lorebook when going right.
+## Goes to the first page if the last page is reached
 func _when_move_right_pressed() -> void:
-	polo_id += 1
-	if polo_id == 21:
-		polo_id = 1
+	polo_id = wrapi(polo_id + 1, 0, polos.size())
+	page_index = wrapi(page_index + 1, 0, lore_pages.size())
 	update_lorebook()
 
+## Updates lorebook when going left.
+## Wraps correctly to the other side
 func _when_move_left_pressed() -> void:
-	polo_id -= 1
-	if polo_id == -1:
-		polo_id = 19
+	polo_id = wrapi(polo_id - 1, 0, polos.size())
+	page_index = wrapi(page_index - 1, 0, lore_pages.size())
 	update_lorebook()
