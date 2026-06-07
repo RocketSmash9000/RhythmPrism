@@ -5,6 +5,8 @@ You should visit [this page](https://rocketsmash9000.github.io/RhythmPrism/) for
 
 If you end up using this project, let me know what awesome stuff you've made with it! :D
 
+[![](https://dcbadge.limes.pink/api/server/https://discord.gg/NVhXPMsNdV)](https://discord.gg/NVhXPMsNdV)
+
 ## Your imagination is the limit!
 The official Incredibox mods have a few limitations in what they can do, as they use the official Incredibox engine. This limits creative expression in the form of cool effects. No way to add more than 20 polos, wasted screen space, icons can't be animated... (at least it was that way last time I checked) there's so many problems with official Incredibox modding that I wanted to let everyone take back all we could do before official mods (yes I know RMB exists).
 
