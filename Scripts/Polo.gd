@@ -100,7 +100,7 @@ func _when_reset() -> void:
 	vanquish()
 
 ## Makes the polo become unselected again
-func vanquish():
+func vanquish() -> void:
 	# This makes the polo become unselected again
 	polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")
 	GlobalVars.picked_polos.erase(type) # Removes polo type from used list
@@ -124,3 +124,12 @@ func vanquish():
 	animator.play()
 	await get_tree().create_timer(0.005).timeout
 	$AudioStreamPlayer.stop()
+
+## Makes all polos exactly the same height. This doesn't account for differences in the sprites.
+func _when_level_polos() -> void:
+	var animator := create_tween()
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_EXPO)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 66.5), 0.5)
+	animator.play()

@@ -23,6 +23,7 @@ var first_polo := true # True when there are no polos picked
 
 signal newLoop(loop: int)
 signal resetPolos()
+signal levelPolos()
 
 # Called every time the node gets loaded into a scene.
 func _ready() -> void:
@@ -76,8 +77,8 @@ func _process(delta: float) -> void:
 	
 	# Delete or comment out this block in case you don't want the progress bar, or prefer using a custom one
 	if !GlobalVars.picked_polos.is_empty():
-		@warning_ignore("integer_division")
-		$"Static elements/ProgressBar".position.x += (448/(GlobalVars.loop_seconds*GlobalVars.loop_amount))*delta
+		# @warning_ignore("integer_division")
+		$"Static elements/ProgressBar".position.x += (448.0/(GlobalVars.loop_seconds*GlobalVars.loop_amount))*delta
 	if $"Static elements/ProgressBar".position.x >= 1960 or GlobalVars.picked_polos.is_empty():
 		$"Static elements/ProgressBar".position.x = 1512
 	
@@ -112,9 +113,15 @@ func _when_close_menu_pressed() -> void:
 	hide_menu = true
 
 func _when_reset_button_pressed() -> void:
-	# Emits a signal to all polos so that they reset
-	logger.debug("Reset button pressed! Resetting...")
-	emit_signal("resetPolos")
+	if Input.is_action_pressed("solo_polo"):
+		# If the shift key is pressed while pressing the reset button,
+		# All polos will get the same height.
+		logger.debug("Reset button pressed with modifier key! All polos will level themselves.")
+		emit_signal("levelPolos")
+	else:
+		# Emits a signal to all polos so that they reset
+		logger.debug("Reset button pressed! Resetting...")
+		emit_signal("resetPolos")
 
 
 func _when_loop_timeout() -> void:

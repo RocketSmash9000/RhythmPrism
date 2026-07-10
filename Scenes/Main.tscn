@@ -571,6 +571,13 @@ metadata/iconID = 20
 [node name="Loop" type="Timer" parent="." unique_id=1743577248]
 ignore_time_scale = true
 
+[connection signal="levelPolos" from="." to="Static elements/01" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/02" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/03" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/04" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/05" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/06" method="_when_level_polos"]
+[connection signal="levelPolos" from="." to="Static elements/07" method="_when_level_polos"]
 [connection signal="newLoop" from="." to="Static elements/01/AudioStreamPlayer" method="_when_parent_node_new_loop"]
 [connection signal="newLoop" from="." to="Static elements/02/AudioStreamPlayer" method="_when_parent_node_new_loop"]
 [connection signal="newLoop" from="." to="Static elements/03/AudioStreamPlayer" method="_when_parent_node_new_loop"]

@@ -39,7 +39,7 @@ var master_volume := 0.0
 ## [code]0[/code] - Lorebook disabled, button will be hidden. [br]
 ## [code]1[/code] - Lore per polo. Has as many pages as polos. [br]
 ## [code]2[/code] - Lorebook mode. The pages contain lore of the mod's universe. Unlimited pages.
-var lorebook_mode := 2
+var lorebook_mode := 0
 
 ## RP v1.x supports two versions of buses: Legacy and V2.
 ## Legacy version uses the dictionary in AudioPlayer.gd to parse the effects and 7 buses (plus Master).

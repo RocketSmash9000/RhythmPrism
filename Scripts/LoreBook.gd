@@ -35,7 +35,8 @@ func _ready() -> void:
 		1:
 			load_polo_lore()
 			update_lorebook()
-		2:
+		2: # If in lorebook mode, hide the polo image.
+			lorebook_mode()
 			update_lorebook()
 
 ## Animates the lorebook appearing on the main menu screen
@@ -151,3 +152,12 @@ func _when_move_left_pressed() -> void:
 	polo_id = wrapi(polo_id - 1, 0, polos.size())
 	page_index = wrapi(page_index - 1, 0, lore_pages.size())
 	update_lorebook()
+
+## Adjusts the way the lorebook scene looks to adapt to lorebook mode
+func lorebook_mode() -> void:
+	$PoloBackground.visible = false
+	$PoloSprite.visible = false
+	$PoloIcon.visible = false
+	$LoreBackground4.visible = true
+	$LoreBackground5.visible = true
+	$PoloLore.position = Vector2(-416, -250)
